@@ -1,0 +1,2163 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://10.40.127.128:9871/jintian.html -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>今天喝什么</title>
+<style>
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
+:root {
+  --bg:       #0d131a;
+  --bg2:      #141d26;
+  --card:     #1a2433;
+  --card2:    #1f2d3d;
+  --orange:   #ff8a00;
+  --orange2:  #ffaa44;
+  --orange-dim:#ff8a0022;
+  --text:     #f0e6d3;
+  --text-sub: #8a9bb0;
+  --red:      #ff4757;
+  --green:    #2ed573;
+  --shadow:   0 12px 32px rgba(0,0,0,0.35);
+  --radius-lg:28px;
+  --radius-md:20px;
+  --radius-sm:14px;
+  --safe-top: env(safe-area-inset-top, 40px);
+}
+body {
+  background: #0a0e14;
+  display: flex; justify-content: center; align-items: center;
+  min-height: 100vh;
+  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.phone-mockup {
+  width: 393px; height: 852px;
+  background: #000;
+  border-radius: 55px;
+  box-shadow: 0 0 0 2px #333, 0 0 60px rgba(255,138,0,0.15), 0 20px 60px rgba(0,0,0,0.7);
+  position: relative; padding: 12px; overflow: hidden;
+}
+.dynamic-island {
+  position: absolute; top: 23px; left: 50%; transform: translateX(-50%);
+  width: 125px; height: 35px; background: #000; border-radius: 20px; z-index: 100;
+}
+.screen {
+  width: 100%; height: 100%;
+  background: var(--bg);
+  border-radius: 44px; overflow-y: auto; scrollbar-width: none;
+  position: relative; display: flex; flex-direction: column;
+}
+.screen::-webkit-scrollbar { display: none; }
+
+@media (max-width: 600px) {
+  body { background: var(--bg); align-items: flex-start; }
+  .phone-mockup { width: 100vw; height: 100vh; border-radius: 0; box-shadow: none; padding: 0; }
+  .dynamic-island { display: none; }
+  .screen { border-radius: 0; padding-top: var(--safe-top); }
+}
+
+.hidden { display: none !important; }
+
+/* ── HEADER ── */
+.header { padding: 44px 24px 12px; }
+.greeting { font-size: 12px; color: var(--orange); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px; }
+.title { font-size: 30px; font-weight: 800; color: var(--text); letter-spacing: -0.5px; line-height: 1.2; }
+
+/* ── STEP1 ── */
+.step1-wrap {
+  flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 0 24px;
+}
+.step1-header { text-align: center; margin-bottom: 36px; }
+.step1-greeting { font-size: 13px; color: var(--orange); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; }
+.step1-title { font-size: 36px; font-weight: 900; color: var(--text); letter-spacing: -1px; }
+
+.bento-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.bento-card {
+  border-radius: var(--radius-lg); padding: 22px 18px;
+  box-shadow: var(--shadow); cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s;
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 130px; border: 1px solid rgba(255,255,255,0.04);
+}
+.bento-card:active { transform: scale(0.94); }
+.bc-orange { background: var(--orange); }
+.bc-dark   { background: var(--card2); }
+.bc-glass  { background: linear-gradient(135deg, #1a2433 0%, #1f2d3d 100%); border: 1px solid rgba(255,138,0,0.2); }
+.bento-icon {
+  width: 44px; height: 44px; border-radius: 14px;
+  display: flex; justify-content: center; align-items: center;
+  font-size: 20px; margin-bottom: 12px;
+}
+.bc-orange .bento-icon { background: rgba(0,0,0,0.15); }
+.bc-dark   .bento-icon { background: rgba(255,255,255,0.06); }
+.bc-glass  .bento-icon { background: rgba(255,138,0,0.12); }
+.bento-title { font-size: 17px; font-weight: 800; margin-bottom: 3px; color: var(--text); }
+.bc-orange .bento-title { color: #0d131a; }
+.bento-sub { font-size: 11px; color: var(--text-sub); line-height: 1.3; }
+.bc-orange .bento-sub { color: rgba(13,19,26,0.65); }
+
+/* ── BUTTONS ── */
+.btn-large {
+  width: 100%; background: var(--card); border-radius: var(--radius-md);
+  padding: 17px 18px; display: flex; align-items: center; justify-content: space-between;
+  font-size: 15px; font-weight: 700; color: var(--text);
+  box-shadow: var(--shadow); border: 1px solid rgba(255,255,255,0.04);
+  cursor: pointer; margin-bottom: 14px; transition: transform 0.15s;
+}
+.btn-large:active { transform: scale(0.97); }
+.btn-icon-wrap {
+  width: 38px; height: 38px; border-radius: 12px;
+  background: rgba(255,138,0,0.12); display: flex; align-items: center;
+  justify-content: center; font-size: 17px; margin-right: 14px; flex-shrink: 0;
+}
+.btn-content { flex: 1; text-align: left; }
+.btn-arrow { color: var(--orange); font-size: 16px; font-weight: 700; }
+.btn-primary {
+  background: var(--orange); color: #0d131a; justify-content: center;
+  margin-bottom: 0; border-color: transparent;
+  box-shadow: 0 8px 24px rgba(255,138,0,0.35);
+}
+.btn-outline {
+  background: transparent; border: 1.5px solid rgba(255,255,255,0.12);
+  justify-content: center; color: var(--text-sub); margin-bottom: 0; box-shadow: none;
+}
+.btn-roulette {
+  background: linear-gradient(135deg, #1a2433 0%, #1f2d3d 100%);
+  border: 1px solid rgba(255,138,0,0.35); justify-content: center;
+  color: var(--orange); margin-bottom: 18px;
+  box-shadow: 0 6px 20px rgba(255,138,0,0.12);
+}
+
+/* ── NAV ── */
+.content { padding: 0 20px 40px; flex: 1; }
+.nav-top { display: flex; align-items: center; margin-bottom: 18px; }
+.back-btn {
+  width: 38px; height: 38px; border-radius: 13px; background: var(--card);
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer; font-size: 17px; color: var(--text);
+}
+
+/* ── TASTE GRID ── */
+.taste-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.taste-card {
+  background: var(--card); border-radius: var(--radius-md); padding: 18px 16px;
+  cursor: pointer; transition: transform 0.18s;
+  border: 1px solid rgba(255,255,255,0.04); min-height: 100px;
+  display: flex; flex-direction: column;
+}
+.taste-card:active { transform: scale(0.94); }
+.taste-card.tc-orange { background: var(--orange); border-color: transparent; }
+.taste-icon { font-size: 22px; margin-bottom: 10px; }
+.taste-label { font-size: 15px; font-weight: 800; color: var(--text); }
+.taste-card.tc-orange .taste-label { color: #0d131a; }
+
+/* ── CAT TABS ── */
+.cat-tabs { display: flex; gap: 8px; margin-bottom: 14px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+.cat-tabs::-webkit-scrollbar { display: none; }
+.cat-tab {
+  padding: 9px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+  color: var(--text-sub); background: var(--card); cursor: pointer;
+  white-space: nowrap; transition: all 0.25s;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.cat-tab.active { background: var(--orange); color: #0d131a; border-color: transparent; box-shadow: 0 6px 16px rgba(255,138,0,0.3); }
+
+.cat-panel { display: none; }
+.cat-panel.active { display: block; }
+
+/* ── BAR LIST ── */
+.bar-section { margin-bottom: 10px; }
+.bar-header {
+  background: var(--card); padding: 13px 14px; border-radius: var(--radius-sm);
+  box-shadow: var(--shadow); display: flex; align-items: center;
+  cursor: pointer; transition: transform 0.18s;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.bar-header:active { transform: scale(0.98); }
+.row-logo {
+  width: 40px; height: 40px; border-radius: 11px;
+  display: flex; justify-content: center; align-items: center;
+  font-size: 18px; margin-right: 11px; background: rgba(255,138,0,0.1); flex-shrink: 0;
+}
+.row-info { flex: 1; overflow: hidden; }
+.row-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.row-desc  { font-size: 11px; color: var(--text-sub); white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
+.row-count {
+  font-size: 10px; font-weight: 800; color: var(--orange);
+  background: rgba(255,138,0,0.12); padding: 3px 7px; border-radius: 7px;
+  margin-left: 8px; flex-shrink: 0; border: 1px solid rgba(255,138,0,0.2);
+}
+.bar-expand-arrow { font-size: 14px; color: var(--orange); margin-left: 6px; transition: transform 0.25s; font-weight: 700; }
+.bar-expand-arrow.open { transform: rotate(90deg); }
+
+/* ── NOTE FEED ── */
+.note-feed { display: none; padding: 10px 0 0; }
+.note-feed.open { display: block; }
+.note-masonry { columns: 2; column-gap: 9px; }
+.note-card {
+  break-inside: avoid; background: var(--card2); border-radius: 14px;
+  overflow: hidden; margin-bottom: 9px; cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.18s; display: block; text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.04);
+}
+.note-card:active { transform: scale(0.97); }
+.note-cover { width: 100%; aspect-ratio: 3/4; object-fit: cover; background: #1a2433; display: block; }
+.note-cover-ph { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg,#1a2433,#1f2d3d); display: flex; align-items: center; justify-content: center; font-size: 22px; }
+.note-info { padding: 7px 9px 9px; }
+.note-title { font-size: 11px; font-weight: 600; color: var(--text); line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ── RESULT ── */
+.result-container { flex: 1; position: relative; }
+.back-btn-abs {
+  position: absolute; top: 14px; left: 14px; width: 34px; height: 34px;
+  border-radius: 11px; background: rgba(13,19,26,0.8); backdrop-filter: blur(8px);
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer; font-size: 16px; z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4); font-weight: bold; color: var(--text);
+}
+.drink-img-wrap { width: 100%; height: 230px; background: var(--card2); }
+.drink-img { width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s; }
+.drink-img.loaded { opacity: 1; }
+.drink-img-ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 64px; background: linear-gradient(135deg, #1a2433, #0d131a); }
+
+.result-content {
+  padding: 20px 20px 32px; position: relative; top: -18px;
+  background: var(--bg); border-radius: 22px 22px 0 0;
+}
+.result-title { font-size: 26px; font-weight: 900; color: var(--text); margin-bottom: 3px; letter-spacing: -0.5px; }
+.result-sub { font-size: 12px; color: var(--text-sub); font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.xhs-badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  font-size: 11px; color: var(--orange); font-weight: 700;
+  background: rgba(255,138,0,0.1); border: 1px solid rgba(255,138,0,0.25);
+  padding: 2px 8px; border-radius: 6px; text-decoration: none;
+}
+
+/* ── 黄历按钮 ── */
+.almanac-btn-row { display: flex; gap: 10px; margin-bottom: 14px; }
+.almanac-btn {
+  flex: 1; padding: 14px 10px; border-radius: var(--radius-sm);
+  border: none; cursor: pointer; font-size: 13px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+.almanac-btn:active { transform: scale(0.95); }
+.almanac-btn-do {
+  background: rgba(46,213,115,0.12); color: var(--green);
+  border: 1.5px solid rgba(46,213,115,0.3);
+}
+.almanac-btn-dont {
+  background: rgba(255,71,87,0.1); color: var(--red);
+  border: 1.5px solid rgba(255,71,87,0.25);
+}
+
+/* ── GAME BOX ── */
+.game-box {
+  background: var(--card); border-radius: var(--radius-sm); padding: 13px;
+  margin-bottom: 13px; position: relative; overflow: hidden;
+  border: 1px dashed rgba(255,138,0,0.25);
+}
+.game-box::before { content:'🎯'; position:absolute; right:-4px; bottom:-8px; font-size:44px; opacity:0.06; }
+.game-title { font-size: 10px; color: var(--orange); text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-bottom: 5px; }
+.game-desc { font-size: 13px; color: var(--text); font-weight: 600; line-height: 1.5; }
+
+/* ── RECIPE ── */
+.recipe-bento {
+  background: var(--card); border-radius: var(--radius-sm); padding: 13px;
+  margin-bottom: 16px; display: flex; gap: 12px;
+}
+.rb-col { flex: 1; }
+.rb-divider { width: 1px; background: rgba(255,255,255,0.06); }
+.rb-title { font-size: 10px; color: var(--text-sub); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-bottom: 5px; }
+.rb-val { font-size: 12px; color: var(--text); font-weight: 500; line-height: 1.5; }
+
+.action-group { display: flex; gap: 10px; }
+.btn-half { flex: 1; padding: 14px; font-size: 14px; border-radius: var(--radius-sm); }
+
+
+.result-reason {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 4px 0 12px;
+  white-space: pre-line;
+}
+.result-tags {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.tag {
+  font-size: 11px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: rgba(255,138,0,0.10);
+  color: var(--orange);
+  border: 1px solid rgba(255,138,0,0.16);
+}
+.mbti-cover {
+  background: linear-gradient(160deg, #1f2d3d 0%, #141d26 58%, #0d131a 100%);
+  border-radius: 24px;
+  padding: 28px 20px 22px;
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: var(--shadow);
+  margin-bottom: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.mbti-cover::after {
+  content: '';
+  position: absolute;
+  right: -24px;
+  top: -24px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,138,0,0.22), rgba(255,138,0,0));
+}
+.mbti-type {
+  font-size: 42px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -1px;
+  color: var(--orange);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+.mbti-title {
+  font-size: 22px;
+  line-height: 1.25;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+.mbti-desc {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-sub);
+  white-space: pre-line;
+  position: relative;
+  z-index: 1;
+}
+.mbti-meta {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+  position: relative;
+  z-index: 1;
+}
+.share-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.78);
+  backdrop-filter: blur(12px);
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+}
+.share-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.share-box {
+  width: 86%;
+  background: var(--card2);
+  border-radius: 28px;
+  padding: 18px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+.share-card {
+  background: linear-gradient(160deg, #1f2d3d 0%, #141d26 58%, #0d131a 100%);
+  border-radius: 22px;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,0.05);
+  margin-bottom: 14px;
+}
+.share-kicker {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+.share-drink {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 10px;
+  letter-spacing: -0.6px;
+}
+.share-reason {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+  white-space: pre-line;
+  margin-bottom: 12px;
+}
+.share-tip {
+  font-size: 12px;
+  color: var(--text-sub);
+  text-align: center;
+  margin: 4px 0 12px;
+}
+.share-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ── LOADING ── */
+.loading-wrap { height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; }
+.orb {
+  width: 68px; height: 68px; border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 40px rgba(255,138,0,0.5); margin-bottom: 20px;
+  animation: spinBreath 0.7s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+@keyframes spinBreath {
+  0%   { transform: scale(1) rotate(0deg);   opacity: 0.8; box-shadow: 0 0 30px rgba(255,138,0,0.4); }
+  50%  { transform: scale(1.15) rotate(180deg); opacity: 1; box-shadow: 0 0 50px rgba(255,138,0,0.7); }
+  100% { transform: scale(1) rotate(360deg); opacity: 0.8; box-shadow: 0 0 30px rgba(255,138,0,0.4); }
+}
+.loading-txt { font-size: 15px; font-weight: 700; color: var(--text-sub); }
+
+/* ── TOAST ── */
+.toast {
+  position: absolute; bottom: 36px; left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--orange); color: #0d131a;
+  padding: 12px 22px; border-radius: 18px;
+  font-size: 13px; font-weight: 800;
+  box-shadow: 0 10px 25px rgba(255,138,0,0.4);
+  opacity: 0; pointer-events: none; transition: all 0.3s; z-index: 999;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* ── MODALS (roulette + almanac) ── */
+.modal-overlay {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.75); backdrop-filter: blur(12px);
+  z-index: 1000; display: flex; justify-content: center; align-items: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s;
+}
+.modal-overlay.show { opacity: 1; pointer-events: auto; }
+.modal-box {
+  background: var(--card2); width: 82%; padding: 30px 24px;
+  border-radius: 30px; text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,138,0,0.15);
+  transform: scale(0.88) translateY(16px);
+  transition: transform 0.35s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+.modal-overlay.show .modal-box { transform: scale(1) translateY(0); }
+.modal-label { font-size: 11px; color: var(--text-sub); font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 14px; }
+
+/* Roulette */
+.modal-victim { font-size: 22px; font-weight: 900; color: var(--orange); margin-bottom: 22px; line-height: 1.4; white-space: pre-line; }
+
+/* Almanac */
+.almanac-icon { font-size: 52px; margin-bottom: 10px; line-height: 1; }
+.almanac-verdict { font-size: 28px; font-weight: 900; margin-bottom: 6px; }
+.almanac-verdict.ji  { color: var(--green); }
+.almanac-verdict.xiong { color: var(--red); }
+.almanac-detail { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 22px; line-height: 1.5; }
+.almanac-tags { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; margin-bottom: 22px; }
+.almanac-tag {
+  padding: 5px 11px; border-radius: 8px; font-size: 12px; font-weight: 700;
+}
+.tag-do   { background: rgba(46,213,115,0.12); color: var(--green); border: 1px solid rgba(46,213,115,0.25); }
+.tag-dont { background: rgba(255,71,87,0.10);  color: var(--red);   border: 1px solid rgba(255,71,87,0.2); }
+</style>
+</head>
+<body>
+<div class="phone-mockup">
+  <div class="dynamic-island"></div>
+  <div class="screen">
+
+    <!-- Global header -->
+    <div class="header hidden" id="global-header">
+      <div class="greeting" id="top-greeting">BAR GUIDE</div>
+      <h1 class="title" id="main-title">魔都精选</h1>
+    </div>
+
+    <!-- ① STEP 1 -->
+    <div id="step1" class="step1-wrap">
+      <div class="step1-header">
+        <div class="step1-greeting">Hey, Drinker!</div>
+        <h1 class="step1-title">今天喝什么?</h1>
+      </div>
+      <div class="bento-grid">
+        <div class="bento-card bc-orange" onclick="goStep2()">
+          <div class="bento-icon">😈</div>
+          <div>
+            <div class="bento-title">必须喝</div>
+            <div class="bento-sub">今朝有酒今朝醉</div>
+          </div>
+        </div>
+        <div class="bento-card bc-dark" onclick="notDrink()">
+          <div class="bento-icon">🍵</div>
+          <div>
+            <div class="bento-title">先不喝</div>
+            <div class="bento-sub">保温杯里泡枸杞</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ② MAIN CONTENT -->
+    <div class="content hidden" id="main-content">
+
+      <!-- Step 2 -->
+      <div id="step2" class="hidden">
+        <div class="nav-top"><div class="back-btn" onclick="backTo(&#39;step1&#39;)">←</div></div>
+        <button class="btn-large" onclick="switchView(&#39;bar&#39;)">
+          <div style="display:flex;align-items:center;">
+            <div class="btn-icon-wrap">🍸</div>
+            <div class="btn-content">
+              <div>出去喝</div>
+              <div style="font-size:11px;color:var(--text-sub);font-weight:500;margin-top:2px;">探索魔都精选酒吧</div>
+            </div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </button>
+        <button class="btn-large" onclick="switchView(&#39;taste&#39;)">
+          <div style="display:flex;align-items:center;">
+            <div class="btn-icon-wrap">🏠</div>
+            <div class="btn-content">
+              <div>自己调一杯</div>
+              <div style="font-size:11px;color:var(--text-sub);font-weight:500;margin-top:2px;">按口味随机一杯</div>
+            </div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </button>
+      </div>
+
+      <!-- Taste -->
+      <div id="taste" class="hidden">
+        <div class="nav-top"><div class="back-btn" onclick="backTo(&#39;step2&#39;)">←</div></div>
+        <div style="font-size:12px;color:var(--text-sub);font-weight:700;margin:2px 0 12px;">先选一种玩法</div>
+        <button class="btn-large" onclick="switchView(&#39;taste-picker&#39;)">
+          <div style="display:flex;align-items:center;">
+            <div class="btn-icon-wrap">🍸</div>
+            <div class="btn-content">
+              <div>按口味抽一杯</div>
+              <div style="font-size:11px;color:var(--text-sub);font-weight:500;margin-top:2px;">甜 / 酸 / 苦 / 随机</div>
+            </div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </button>
+        <button class="btn-large" onclick="startMBTI()">
+          <div style="display:flex;align-items:center;">
+            <div class="btn-icon-wrap">🧠</div>
+            <div class="btn-content">
+              <div>做个微醺 MBTI</div>
+              <div style="font-size:11px;color:var(--text-sub);font-weight:500;margin-top:2px;">6 道题，测你今晚该喝哪一杯</div>
+            </div>
+          </div>
+          <div class="btn-arrow">›</div>
+        </button>
+      </div>
+
+      <div id="taste-picker" class="hidden">
+        <div class="nav-top"><div class="back-btn" onclick="backTo(&#39;taste&#39;)">←</div></div>
+        <div class="taste-grid">
+          <div class="taste-card" onclick="setTaste(&#39;甜&#39;)">
+            <div class="taste-icon">🍭</div>
+            <div class="taste-label">甜口</div>
+          </div>
+          <div class="taste-card" onclick="setTaste(&#39;酸&#39;)">
+            <div class="taste-icon">🍋</div>
+            <div class="taste-label">酸口</div>
+          </div>
+          <div class="taste-card" onclick="setTaste(&#39;苦&#39;)">
+            <div class="taste-icon">🥃</div>
+            <div class="taste-label">苦口</div>
+          </div>
+          <div class="taste-card tc-orange" onclick="setTaste(null)">
+            <div class="taste-icon">🎲</div>
+            <div class="taste-label">交给你</div>
+          </div>
+        </div>
+      </div>
+
+      <div id="mbti-quiz" class="hidden">
+        <div class="nav-top"><div class="back-btn" onclick="backTo(&#39;taste&#39;)">←</div></div>
+        <div class="game-box" style="margin-bottom:16px;">
+          <div class="game-title" id="mbti-progress">问题 1 / 6</div>
+          <div class="game-desc" id="mbti-question">周五晚上你更想？</div>
+        </div>
+        <button class="btn-large" id="mbti-option-a"></button>
+        <button class="btn-large" id="mbti-option-b"></button>
+      </div>
+
+      <div id="mbti-card" class="hidden">
+        <div class="nav-top"><div class="back-btn" onclick="backTo(&#39;taste&#39;)">←</div></div>
+        <div id="mbti-card-inner"></div>
+      </div>
+
+      <!-- Bar -->
+      <div id="bar" class="hidden">
+        <div class="nav-top"><div class="back-btn" onclick="backTo(&#39;step2&#39;)">←</div></div>
+        <button class="btn-large btn-roulette" onclick="spinRoulette()">💸 今晚谁请客</button>
+        <div class="cat-tabs" id="cat-tabs"><button class="cat-tab active">🍹 鸡尾酒精选</button><button class="cat-tab">🎧 夜店Club</button><button class="cat-tab">🌆 高空观景</button><button class="cat-tab">💸 穷鬼精选</button><button class="cat-tab">🎷 爵士LiveHouse</button></div>
+        <div id="cat-panels"><div class="cat-panel active"><div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-0&#39;,&#39;a-0-0&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">COA</div>
+              <div class="row-desc">亚洲鸡尾酒No.1，龙舌兰专门店</div>
+            </div>
+            <div class="row-count">10篇</div>
+            <div class="bar-expand-arrow" id="a-0-0">›</div>
+          </div>
+          <div class="note-feed" id="f-0-0">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64254c12000000001303eab9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g008290f3oiqfm0005opk470m5qto174qoio" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">亚洲top50酒吧🍹上海占三家？！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/671f58e3000000001600f340" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg319g9qq0t7a705nm7o98gbtdck213seg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">2天喝完12家bar，上海资深酒鬼5A级景区推荐</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/666c6318000000001d015ba5" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg3141haq9jicl04a35nooqir12h9ua330" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">北京朋友圈和上海朋友圈的区别，是真事儿</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5a07dbef3860855f3f8e6192" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/0ae13fd7-18e8-45db-99c6-3b6c20835463" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">最全！超实用！超详细！🇹🇭吐血整理泰国十二天自由行攻略</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64b91bd00000000017019fab" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082r1rhsmik602048s5529heai52bf1k3g" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海酒吧红黑榜❗️个人榜单</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64b798ec000000001c018405" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082qruknueju00048n5a00cj8u27c0fkbg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">2023亚洲五十强酒吧出炉，上海全军覆没</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/691b666d000000000d03fd95" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3r031p0eadvoiu0048lcbun6bf548mcll08" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">Bar Leone偶遇王嘉尔</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/59c618ec07ef1c6c3f1d8701" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/ecbc89da-7529-4e0d-abde-64b0f38383d9" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">玩转海南环岛最全景点攻略—北纬10度的日光倾城</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/62204cca000000002103aaea" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/5dd990a9-4592-3628-85cd-ffe994b9c4f4" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">这个临街超有氛围感的西餐厅太好拍了📷</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5ca4ace2000000000f021089" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg315vbdp031ab04001lv2cthp5anotsi0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">来上海！一定要喝漂亮的酒！！！！！</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-1&#39;,&#39;a-0-1&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">Union Trading Company</div>
+              <div class="row-desc">亚洲Top50，南方冰茶是招牌，walk-in限定</div>
+            </div>
+            <div class="row-count">6篇</div>
+            <div class="bar-expand-arrow" id="a-0-1">›</div>
+          </div>
+          <div class="note-feed" id="f-0-1">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64254c12000000001303eab9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g008290f3oiqfm0005opk470m5qto174qoio" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">亚洲top50酒吧🍹上海占三家？！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/63a80ba20000000019020b8a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0081pn6kdeqeg00g4a600m6ogofotu414m8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">微醺就好🍹饮一杯魔都快乐水</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/630c90ac0000000011035d34" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/01028t016gcalweafb70112ytau0zxy3ug" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">人头马的精湛「技邑」</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5a8f3be91b7d6531d813d468" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/e32d74df-55c0-473d-a544-f2ae2f7ba88f" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">🇩🇰丹麦旅行|哥本哈根最全面游记 看这一篇就够啦💖</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64b798ec000000001c018405" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082qruknueju00048n5a00cj8u27c0fkbg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">2023亚洲五十强酒吧出炉，上海全军覆没</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5ca4ace2000000000f021089" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg315vbdp031ab04001lv2cthp5anotsi0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">来上海！一定要喝漂亮的酒！！！！！</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-2&#39;,&#39;a-0-2&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">Speak Low</div>
+              <div class="row-desc">亚洲Top50，书架后的暗门，三层美式复古</div>
+            </div>
+            <div class="row-count">4篇</div>
+            <div class="bar-expand-arrow" id="a-0-2">›</div>
+          </div>
+          <div class="note-feed" id="f-0-2">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64254523000000001300c49c" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g008290bne7sfm0005nq23850bg10mqjh3u0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">十大上海值得去的酒吧｜小众又高级</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/6940e068000000001b0277c0" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3r031q50hifmno305n6ceis46oidurldoi8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">该收起对越南的偏见了</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/68aee52e000000001c006bcc" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g0k031lmfcnreks005n47hkskllf061fs77g" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">录播客时聊酒 录完播客喝酒</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5db9d74b000000000100a53a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/c0e99079-e713-38ea-a5f2-58a6dfcc56ca" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">Recommendation|高质感上海酒吧推荐（一）</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-3&#39;,&#39;a-0-3&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">Sober Company</div>
+              <div class="row-desc">咖啡+餐厅+酒吧三合一，找到隐藏吧台</div>
+            </div>
+            <div class="row-count">4篇</div>
+            <div class="bar-expand-arrow" id="a-0-3">›</div>
+          </div>
+          <div class="note-feed" id="f-0-3">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/6724cdc6000000001901b9da" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g008319lkbkgs7g005pakmrm17atisqeh9ug" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">清吧能不能不要再做精装的马尿了</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/63a153e4000000001f00bc9b" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0081osutg4qdc0004a554633je8ebg0rbo8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">意难平系列😭2022上海宝藏小店闭店清单🧾</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64b798ec000000001c018405" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082qruknueju00048n5a00cj8u27c0fkbg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">2023亚洲五十强酒吧出炉，上海全军覆没</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5db9d74b000000000100a53a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/c0e99079-e713-38ea-a5f2-58a6dfcc56ca" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">Recommendation|高质感上海酒吧推荐（一）</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-4&#39;,&#39;a-0-4&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">J.Boroski</div>
+              <div class="row-desc">昆虫主题，无酒单，告诉调酒师喜好定制</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-0-4">›</div>
+          </div>
+          <div class="note-feed" id="f-0-4">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64254c12000000001303eab9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g008290f3oiqfm0005opk470m5qto174qoio" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">亚洲top50酒吧🍹上海占三家？！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/647735f800000000140251d5" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082j0eaiveii05g5n5udq2lhutpau0l9n8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">夜晚的巨富长，魔都年轻人的乌托邦！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/63cfd47a000000001c0371ff" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0081uijmkf8es00040913c786epbqckm8bo" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海好喝的酒吧1⃣️……</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-5&#39;,&#39;a-0-5&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">CHAR</div>
+              <div class="row-desc">精品清吧，环境极佳</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-0-5">›</div>
+          </div>
+          <div class="note-feed" id="f-0-5">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/602a01460000000001027cbf" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/99673c4c-e993-3581-8a34-faf104caa846" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海"最好吃的餐厅"全在这里了，很多都实惠</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5a73add591c72c07a35779a9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/052bbc86-06bc-4352-a80c-77a94f8cc9d1" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">香港血拼攻略(打折卡分享)➕香港吃喝玩乐</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/62204cca000000002103aaea" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/5dd990a9-4592-3628-85cd-ffe994b9c4f4" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">这个临街超有氛围感的西餐厅太好拍了📷</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-6&#39;,&#39;a-0-6&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">1515</div>
+              <div class="row-desc">精品鸡尾酒，低调精致</div>
+            </div>
+            <div class="row-count">2篇</div>
+            <div class="bar-expand-arrow" id="a-0-6">›</div>
+          </div>
+          <div class="note-feed" id="f-0-6">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/646dcf8600000000140245e6" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082hrn9arkiu00g4a4f1v94kqu8cevvm0o" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">30+治愈自己，享受偶尔独自旅行与放空的快乐</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/655733760000000033001854" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830usp2f9ll62040ondojgec1878vj1g8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">合集：）上海圣诞氛围打卡攻略🎄持续更新</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-7&#39;,&#39;a-0-7&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">ORIGIN</div>
+              <div class="row-desc">原创调酒，有自己的风格</div>
+            </div>
+            <div class="row-count">2篇</div>
+            <div class="bar-expand-arrow" id="a-0-7">›</div>
+          </div>
+          <div class="note-feed" id="f-0-7">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5f3be39b0000000001003084" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/03180f42-7efb-3f7f-8be7-42602d1c31a8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">生日当天咱们都有哪些优惠？🈶️👭薅羊毛</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5ef42419000000000101ec03" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/3bece5e1-aa51-3bdf-a5d8-e29d3e1410e7" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海探店📍一家被名字耽误的实力好餐厅</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-8&#39;,&#39;a-0-8&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">Highball</div>
+              <div class="row-desc">Highball专门店，清爽系</div>
+            </div>
+            <div class="row-count">2篇</div>
+            <div class="bar-expand-arrow" id="a-0-8">›</div>
+          </div>
+          <div class="note-feed" id="f-0-8">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67260fd1000000003c0195ef" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g008319mr0g1lnc3g5nm7o98gbtdc5i5c7eg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">减肥酒鬼喝什么</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/630c90ac0000000011035d34" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/01028t016gcalweafb70112ytau0zxy3ug" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">人头马的精湛「技邑」</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-0-9&#39;,&#39;a-0-9&#39;)">
+            <div class="row-logo">🍹</div>
+            <div class="row-info">
+              <div class="row-title">ELEVATOR</div>
+              <div class="row-desc">电梯门后的惊喜小吧</div>
+            </div>
+            <div class="row-count">2篇</div>
+            <div class="bar-expand-arrow" id="a-0-9">›</div>
+          </div>
+          <div class="note-feed" id="f-0-9">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5dafc995000000000100a7cc" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/58a734a6-b796-37bd-97e7-3cbb66e27d77" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">🔴上海最全最棒最适合拍照酒吧club推荐🔵上</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/69434138000000001b022bd2" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3k031q7bcn2v7g0g4a17mkcphpg89eu7400" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">kpop冷知识：MCD后台有个装艺人用的袖珍电梯</div></div>
+        </a></div>
+          </div>
+        </div></div></div><div class="cat-panel"><div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-0&#39;,&#39;a-1-0&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">RADI</div>
+              <div class="row-desc">INS复兴公园3楼，K-pop+欧美流行，人气No.1</div>
+            </div>
+            <div class="row-count">11篇</div>
+            <div class="bar-expand-arrow" id="a-1-0">›</div>
+          </div>
+          <div class="note-feed" id="f-1-0">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/66f650da000000002c02e409" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg31887jk1bk6705pk3vuujcj7tjjatu40" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">ins复兴乐园太好玩了 难怪158没人..</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830ts5j61o4k005or4roo7qgu121oqpb0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64254c12000000001303eab9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g008290f3oiqfm0005opk470m5qto174qoio" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">亚洲top50酒吧🍹上海占三家？！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67f28c10000000001c017d4a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg31mh71q8ikqog5ocm15i40modqme4l7g" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海热门酒吧八大推荐</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64e47712000000001201bd08" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830o2omi7120405obmnijgjqsk0vgl7qg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">bar测评（3）‖ins复兴公园酒吧测评+推荐</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67b2d975000000002903095e" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00831e0b98tege004anshio14aio5o3gmt8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">卡上换歌的那一秒太爽了</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/63a80ba20000000019020b8a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0081pn6kdeqeg00g4a600m6ogofotu414m8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">微醺就好🍹饮一杯魔都快乐水</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67e4212f000000000b0142b2" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3k031fgf6ku274104a0s52a7m95e57sjmu0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">不是。。我真能扫出来。。</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/630c90ac0000000011035d34" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/01028t016gcalweafb70112ytau0zxy3ug" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">人头马的精湛「技邑」</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64b798ec000000001c018405" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082qruknueju00048n5a00cj8u27c0fkbg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">2023亚洲五十强酒吧出炉，上海全军覆没</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5ca4ace2000000000f021089" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg315vbdp031ab04001lv2cthp5anotsi0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">来上海！一定要喝漂亮的酒！！！！！</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-1&#39;,&#39;a-1-1&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">44KW</div>
+              <div class="row-desc">最时尚Club，Techno+嘻哈双厅，超模聚集地</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-1-1">›</div>
+          </div>
+          <div class="note-feed" id="f-1-1">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/63a153e4000000001f00bc9b" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0081osutg4qdc0004a554633je8ebg0rbo8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">意难平系列😭2022上海宝藏小店闭店清单🧾</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5dafc995000000000100a7cc" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/58a734a6-b796-37bd-97e7-3cbb66e27d77" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">🔴上海最全最棒最适合拍照酒吧club推荐🔵上</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5f081aa6000000000101e9b4" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1dbe2649-bd7d-3741-91de-b4dd893ef456" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">⚠️ 来上海玩不要再去这些地方啦！</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-2&#39;,&#39;a-1-2&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">Arkham</div>
+              <div class="row-desc">嘻哈俱乐部，国潮潮人聚集地</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-1-2">›</div>
+          </div>
+          <div class="note-feed" id="f-1-2">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5d4aa4b20000000028022876" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/0907222d-e93d-3b81-ae96-8f565fc568c6" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海酒吧丨超好玩超小众的地下蹦迪club合集</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5dafc995000000000100a7cc" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/58a734a6-b796-37bd-97e7-3cbb66e27d77" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">🔴上海最全最棒最适合拍照酒吧club推荐🔵上</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/6486f5880000000013037d04" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082kturpa8j200049dqdoslods5hk4fan8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">妈呀，我才知道去蹦迪有这么多规矩</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-3&#39;,&#39;a-1-3&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">Potent</div>
+              <div class="row-desc">友好男男bar，气氛超好，多元包容</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-1-3">›</div>
+          </div>
+          <div class="note-feed" id="f-1-3">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5f081aa6000000000101e9b4" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1dbe2649-bd7d-3741-91de-b4dd893ef456" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">⚠️ 来上海玩不要再去这些地方啦！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/606c594500000000010289df" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/118f4264-af16-39e7-b213-a7b2cf66ae9b" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海100家酒吧.21-30｜Hiphop酒吧合集</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/665b51e1000000001401bddf" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg313gqlcqa209g48ngpnt12s2th4f7vm8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">女生建议定期去男男bar</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-4&#39;,&#39;a-1-4&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">NINJA</div>
+              <div class="row-desc">地下Hiphop夜店，rapper汇聚地</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-1-4">›</div>
+          </div>
+          <div class="note-feed" id="f-1-4">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5f081aa6000000000101e9b4" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1dbe2649-bd7d-3741-91de-b4dd893ef456" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">⚠️ 来上海玩不要再去这些地方啦！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/6486f5880000000013037d04" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082kturpa8j200049dqdoslods5hk4fan8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">妈呀，我才知道去蹦迪有这么多规矩</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/606c594500000000010289df" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/118f4264-af16-39e7-b213-a7b2cf66ae9b" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海100家酒吧.21-30｜Hiphop酒吧合集</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-5&#39;,&#39;a-1-5&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">HOOD</div>
+              <div class="row-desc">老牌Hiphop，舞池大气氛好</div>
+            </div>
+            <div class="row-count">2篇</div>
+            <div class="bar-expand-arrow" id="a-1-5">›</div>
+          </div>
+          <div class="note-feed" id="f-1-5">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830ts5j61o4k005or4roo7qgu121oqpb0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/63ffc9f500000000270111f1" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g00824dq8lacfc0305n2dgl3490al33g13hg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海真没啥好玩的😅</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-6&#39;,&#39;a-1-6&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">Akoma</div>
+              <div class="row-desc">上海最大Hiphop Club，明星偶遇率超高</div>
+            </div>
+            <div class="row-count">2篇</div>
+            <div class="bar-expand-arrow" id="a-1-6">›</div>
+          </div>
+          <div class="note-feed" id="f-1-6">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830ts5j61o4k005or4roo7qgu121oqpb0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/606c594500000000010289df" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/118f4264-af16-39e7-b213-a7b2cf66ae9b" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海100家酒吧.21-30｜Hiphop酒吧合集</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-7&#39;,&#39;a-1-7&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">JADE</div>
+              <div class="row-desc">韩国江南团队，Bounce风格</div>
+            </div>
+            <div class="row-count">2篇</div>
+            <div class="bar-expand-arrow" id="a-1-7">›</div>
+          </div>
+          <div class="note-feed" id="f-1-7">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830ts5j61o4k005or4roo7qgu121oqpb0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5dafc995000000000100a7cc" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/58a734a6-b796-37bd-97e7-3cbb66e27d77" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">🔴上海最全最棒最适合拍照酒吧club推荐🔵上</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-8&#39;,&#39;a-1-8&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">BOOMSHAKE</div>
+              <div class="row-desc">知名连锁，年轻人多，帅哥美女</div>
+            </div>
+            <div class="row-count">2篇</div>
+            <div class="bar-expand-arrow" id="a-1-8">›</div>
+          </div>
+          <div class="note-feed" id="f-1-8">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830ts5j61o4k005or4roo7qgu121oqpb0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/647d10bb0000000011011390" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082jna4odeja00049t4fthvuatr98dje7o" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">Ferg人太nice啦 超级期待8号的演出～</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-1-9&#39;,&#39;a-1-9&#39;)">
+            <div class="row-logo">🎧</div>
+            <div class="row-info">
+              <div class="row-title">Le Baron</div>
+              <div class="row-desc">法式高端夜店，丝绒红色，最难进Top3</div>
+            </div>
+            <div class="row-count">1篇</div>
+            <div class="bar-expand-arrow" id="a-1-9">›</div>
+          </div>
+          <div class="note-feed" id="f-1-9">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5dff82120000000001003143" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/593462ae-e22b-359e-8bbd-b5f4b0c9e9e3" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海宝藏酒吧🍹蹦过最野的迪💕全场靓仔靓妹</div></div>
+        </a></div>
+          </div>
+        </div></div></div><div class="cat-panel"><div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-2-0&#39;,&#39;a-2-0&#39;)">
+            <div class="row-logo">🌆</div>
+            <div class="row-info">
+              <div class="row-title">Flair</div>
+              <div class="row-desc">丽思卡尔顿顶层，直面东方明珠最佳席位</div>
+            </div>
+            <div class="row-count">15篇</div>
+            <div class="bar-expand-arrow" id="a-2-0">›</div>
+          </div>
+          <div class="note-feed" id="f-2-0">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65f81e98000000001203fd54" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g008310fvv8kc6a005pd3q250nie6lin7t2g" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海，花100块就能体验到的纸醉金迷</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/685fb0440000000010010aa9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3k831j9231s72gkg5nuv9alg8dm0sru8l08" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海三大顶奢酒店周边citywalk</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/630de8f10000000012039346" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/01028u01kip5rf0uv590113zvwidan49ez" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海旅游必做28件小事🔥少一件都不完整</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/608a81e3000000000102e39a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/065c4664-cb96-349a-9a51-7fe5787cf8d8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">五一假期千万别来上海‼️如果非要来话…</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/6816ed35000000002203709a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg31h22m55pj8805n5udq2lhutpiaogc18" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">每个来沪朋友都会被我带来这里...</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/694bfa58000000001d03eb81" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg31qjkc1bg724g4a56j8di71lcp6uepp8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">十年前的上海浦东丽思卡尔顿跨年记录。</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/66f55690000000002a035e4a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g008318775ii23q4g49vkrkco1uh1c2savu8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海 花过最值的几笔钱...</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/68c92720000000001301fb87" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3k831mg44t475i4g49vkrkco1uh1d4mltb0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">每个来沪朋友都会被我带来...（合集）</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67e4cc50000000000900c3b8" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3k831fh43geo6a0g49vkrkco1uh199uvtj8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">每个来沪朋友都会被我带来...</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/665360dd000000000c01816e" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg31393pngsg47049vkrkco1uh1crrqt78" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海 花小钱装大杯</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/66c6f2fe000000001f014da9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg316pvcu61447049sv0fc3jng5bqviu88" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">按下生活的暂停键</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/60fce03800000000010292a8" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/61ade102-62a1-3478-922c-a6dd1d50c963" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海|网红露台酒吧 Flair顶层看最美夜景🌃</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/674474300000000002019c69" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00831bqoog4j0u4040uvogk594dage1ska0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海如何花小钱坐享三件套！！！（💰65内）</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67c1baa4000000000603f90e" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3k831ees35sb0ue040uvogk594dar0a0n98" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海如何花小钱坐享三件套（均50）🥂</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5e130df00000000001009152" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/568ebd5f-5369-394b-b63c-0c77a77f0fc3" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">🌆春节去哪儿玩？上海三天两晚最全旅游攻略</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-2-1&#39;,&#39;a-2-1&#39;)">
+            <div class="row-logo">🌆</div>
+            <div class="row-info">
+              <div class="row-title">ROOF</div>
+              <div class="row-desc">屋顶酒吧，城市绿洲</div>
+            </div>
+            <div class="row-count">13篇</div>
+            <div class="bar-expand-arrow" id="a-2-1">›</div>
+          </div>
+          <div class="note-feed" id="f-2-1">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/66b4a55b000000001e01b36d" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg31683dmu9gse05p75tudga6foblspnd8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海｜静安寺附近超火的屋顶bar！🥃</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/6571e9b9000000000901f03b" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg30scsp7mp3i2g5p061ipaaprvdtri9r0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">（合集）人均50r，在上海花小钱装大杯🥂</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/666443b50000000015012e9a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg313pjg75uhm705n9l3ir4ntnu4vghcl0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">女大✈️日本7天6晚超详细攻略（阪进东出）</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5e802a49000000000100a5da" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/706a2c92-4442-3d5e-9895-4d2b43bd4023" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">低成本打卡网红酒吧～上海艾迪逊酒店-ROOF</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/668aa7930000000003024ae6" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg314v36cog0m004a5qmrbr73t5bk7v218" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">北京这些牛逼的酒吧 完全不输上海纽约</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5f297bc10000000001005347" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/7d4e7f9a-db3a-3aa0-8dd5-0c815ac5ca47" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">下午茶的门槛看一个城市对贫富的包容程度</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/641fe0ff0000000013000f87" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg31j3vegmshgfg5oghtl4k1ihhqcmpo88" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">一起俯瞰东方明珠～</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64acce7f000000003500a317" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082phppa80jq00049ih3g9k9g026tk2cu8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海本地人都说我这份攻略做得太🐂了！！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5cac61ba000000000e0209c9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/ab776391-e431-3add-a18f-227d09685777" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海露台季终于到啦🤩整理了几个常去的餐厅</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67c1baa4000000000603f90e" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3k831ees35sb0ue040uvogk594dar0a0n98" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海如何花小钱坐享三件套（均50）🥂</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65d764f4000000000b0158d8" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg30vg09srs661g40uvogk594dasdcphj8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海如何花小钱坐享三件套（均50）🥂</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5f27bd910000000001002c30" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/dc53413f-fc8b-37e0-b10d-c09fb14d70e3" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">魔都外滩风景的rooftop餐厅</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64210e89000000001303fb31" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g00828gj42dcfe06g40gn43uetjd6qa9ale8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海周末情侣约会指南❤️破冰好去处🍫</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-2-2&#39;,&#39;a-2-2&#39;)">
+            <div class="row-logo">🌆</div>
+            <div class="row-info">
+              <div class="row-title">Shake</div>
+              <div class="row-desc">放克灵魂乐现场，餐酒俱佳</div>
+            </div>
+            <div class="row-count">9篇</div>
+            <div class="bar-expand-arrow" id="a-2-2">›</div>
+          </div>
+          <div class="note-feed" id="f-2-2">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/650bf797000000001303cb2a" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830p9c6s7246005p2kq2nk5fqnm22l2sg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海Citywalk必逛路线思南路+新天地</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830ts5j61o4k005or4roo7qgu121oqpb0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/68843ee90000000011000893" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3k031kcqrdolig005olrf036dc52b4feu80" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海浦东机场T2国际出发安检后有什么</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/602a01460000000001027cbf" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/99673c4c-e993-3581-8a34-faf104caa846" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海"最好吃的餐厅"全在这里了，很多都实惠</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/642e5787000000001300f8d0" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082a3pjrfkgm0605ndjodg0811i9ofengg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">我不建议任何在上海生活的人来阿那亚</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/6518dc62000000001a022654" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830plv4gknmo004a1ef8c34ra2ctdbm70" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">陆家嘴必吃必逛，看这一篇就够了‼️</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/647d10bb0000000011011390" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082jna4odeja00049t4fthvuatr98dje7o" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">Ferg人太nice啦 超级期待8号的演出～</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/636cc67800000000230185a9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0081iflr5eiak000474b17siv27fpjifgn0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海别租房了！月付6k的长住酒店真的很香！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5e130df00000000001009152" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/568ebd5f-5369-394b-b63c-0c77a77f0fc3" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">🌆春节去哪儿玩？上海三天两晚最全旅游攻略</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-2-3&#39;,&#39;a-2-3&#39;)">
+            <div class="row-logo">🌆</div>
+            <div class="row-info">
+              <div class="row-title">Sky Bar</div>
+              <div class="row-desc">高空清吧，魔都全景</div>
+            </div>
+            <div class="row-count">4篇</div>
+            <div class="bar-expand-arrow" id="a-2-3">›</div>
+          </div>
+          <div class="note-feed" id="f-2-3">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65ddb4cc000000000b022125" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830vm6i235lq405nlq2tk08o955vrpo10" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">😍👉对号入座！看看你的酒量段位在哪个级别？</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67c1baa4000000000603f90e" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g3k831ees35sb0ue040uvogk594dar0a0n98" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海如何花小钱坐享三件套（均50）🥂</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65d764f4000000000b0158d8" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg30vg09srs661g40uvogk594dasdcphj8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海如何花小钱坐享三件套（均50）🥂</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5e822ae1000000000100acd4" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/6cd4d0da-dde2-30cb-b65c-d84a8e77b3fd" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海|最小资的街可不是只有田子坊和新天地</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-2-4&#39;,&#39;a-2-4&#39;)">
+            <div class="row-logo">🌆</div>
+            <div class="row-info">
+              <div class="row-title">The Captain</div>
+              <div class="row-desc">外滩平价江景高空，性价比天花板</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-2-4">›</div>
+          </div>
+          <div class="note-feed" id="f-2-4">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/6571e9b9000000000901f03b" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg30scsp7mp3i2g5p061ipaaprvdtri9r0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">（合集）人均50r，在上海花小钱装大杯🥂</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/672b67c2000000003c01ac0f" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g008319s2l2qm7c005neh4pog8rvjck1c400" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">在上海·花小钱装大杯的氛围感餐厅</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/681d912f000000002001d2f0" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00831h8i6rav3in049bdolfdm0k0h6ltnsg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">Summer vibe🏛️ °◞✭ ゛</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-2-5&#39;,&#39;a-2-5&#39;)">
+            <div class="row-logo">🌆</div>
+            <div class="row-info">
+              <div class="row-title">Bar Rouge</div>
+              <div class="row-desc">外滩18号顶层，魔都红色标志</div>
+            </div>
+            <div class="row-count">1篇</div>
+            <div class="bar-expand-arrow" id="a-2-5">›</div>
+          </div>
+          <div class="note-feed" id="f-2-5">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5dcd5b2600000000010002a3" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/44581a9d-4148-34a7-9dca-8481656dc5b4" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海旅游景点🌟门票全攻略🌟交通住宿&amp;</div></div>
+        </a></div>
+          </div>
+        </div></div></div><div class="cat-panel"><div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-3-0&#39;,&#39;a-3-0&#39;)">
+            <div class="row-logo">💸</div>
+            <div class="row-info">
+              <div class="row-title">The Nest</div>
+              <div class="row-desc">高性价比精品清吧</div>
+            </div>
+            <div class="row-count">5篇</div>
+            <div class="bar-expand-arrow" id="a-3-0">›</div>
+          </div>
+          <div class="note-feed" id="f-3-0">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65e34f66000000000b023763" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830vrjjku15o6g49vkrkco1uh1c3rvrn8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">以为外滩很美了...</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/65f8bde4000000001302635b" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g2sg310gj6a166k4049vkrkco1uh1j0dt8g0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海真的已经next level...</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/643e6f33000000000800f03e" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082c2l8ijkgu04g49b0hq17l6nsvc7j7q0" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">合集：）永远为上海的露台和临街小酒馆着迷</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67015489000000001b023e76" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g008318ivpsgnjq0049b0hq17l6ns0054avo" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">合集：）来上海旅游真的很喜欢外滩这几家餐厅</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64a41a0500000000160268d8" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082ofplirmjs00049b0hq17l6nsr1po5fg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">合集：）旅游来外滩就吃这9家（人均没有很贵）</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-3-1&#39;,&#39;a-3-1&#39;)">
+            <div class="row-logo">💸</div>
+            <div class="row-info">
+              <div class="row-title">Jolly</div>
+              <div class="row-desc">30+搞定，青提起泡/山楂威士忌都是王牌</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-3-1">›</div>
+          </div>
+          <div class="note-feed" id="f-3-1">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/647735f800000000140251d5" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082j0eaiveii05g5n5udq2lhutpau0l9n8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">夜晚的巨富长，魔都年轻人的乌托邦！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64b154e500000000150313d5" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082q3fdkluk60004a7ljljkbjqb4m12hg8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">City Walk｜上海酒鬼夜游微醺高性价比路线</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/643003a800000000130169a9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082aaan3b6go0004a785tl7uao4e7mnvco" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海穷鬼鸡尾酒地图 | 全收集</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-3-2&#39;,&#39;a-3-2&#39;)">
+            <div class="row-logo">💸</div>
+            <div class="row-info">
+              <div class="row-title">tonic</div>
+              <div class="row-desc">30+奶茶感酒吧，可打包，送好看杯子</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-3-2">›</div>
+          </div>
+          <div class="note-feed" id="f-3-2">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/67260fd1000000003c0195ef" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g008319mr0g1lnc3g5nm7o98gbtdc5i5c7eg" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">减肥酒鬼喝什么</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64b154e500000000150313d5" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082q3fdkluk60004a7ljljkbjqb4m12hg8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">City Walk｜上海酒鬼夜游微醺高性价比路线</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/643003a800000000130169a9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082aaan3b6go0004a785tl7uao4e7mnvco" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海穷鬼鸡尾酒地图 | 全收集</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-3-3&#39;,&#39;a-3-3&#39;)">
+            <div class="row-logo">💸</div>
+            <div class="row-info">
+              <div class="row-title">lemon twist</div>
+              <div class="row-desc">9.9金汤力，穷鬼必冲</div>
+            </div>
+            <div class="row-count">3篇</div>
+            <div class="bar-expand-arrow" id="a-3-3">›</div>
+          </div>
+          <div class="note-feed" id="f-3-3">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/647735f800000000140251d5" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082j0eaiveii05g5n5udq2lhutpau0l9n8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">夜晚的巨富长，魔都年轻人的乌托邦！</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/64b154e500000000150313d5" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082q3fdkluk60004a7ljljkbjqb4m12hg8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">City Walk｜上海酒鬼夜游微醺高性价比路线</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/643003a800000000130169a9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082aaan3b6go0004a785tl7uao4e7mnvco" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海穷鬼鸡尾酒地图 | 全收集</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-3-4&#39;,&#39;a-3-4&#39;)">
+            <div class="row-logo">💸</div>
+            <div class="row-info">
+              <div class="row-title">air by ounce</div>
+              <div class="row-desc">50+有逼格，露台喝酒很小资</div>
+            </div>
+            <div class="row-count">1篇</div>
+            <div class="bar-expand-arrow" id="a-3-4">›</div>
+          </div>
+          <div class="note-feed" id="f-3-4">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/643003a800000000130169a9" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082aaan3b6go0004a785tl7uao4e7mnvco" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海穷鬼鸡尾酒地图 | 全收集</div></div>
+        </a></div>
+          </div>
+        </div></div></div><div class="cat-panel"><div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-4-0&#39;,&#39;a-4-0&#39;)">
+            <div class="row-logo">🎷</div>
+            <div class="row-info">
+              <div class="row-title">JZ Club</div>
+              <div class="row-desc">上海老牌爵士圣地，经典不衰</div>
+            </div>
+            <div class="row-count">4篇</div>
+            <div class="bar-expand-arrow" id="a-4-0">›</div>
+          </div>
+          <div class="note-feed" id="f-4-0">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/648f99a8000000001203c675" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1000g0082lvn05ckio02g5ougv8optbcphre8ku8" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">演唱会现场级别的livehouse推荐这6家</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/619e1c8e000000002103f5fe" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/ef7c5af2-88a8-3e5f-b410-aac75bb6f76c" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">广州探店｜广州最大的爵士乐酒吧💃🏻JZ Club</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5eb059cd00000000010031d8" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/de7e3c44-55df-3442-a326-3c69c3f5f0cb" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">上海最美马路①巨鹿路：从爱神花园到精致小店</div></div>
+        </a>
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/5f081aa6000000000101e9b4" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1dbe2649-bd7d-3741-91de-b4dd893ef456" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">⚠️ 来上海玩不要再去这些地方啦！</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-4-1&#39;,&#39;a-4-1&#39;)">
+            <div class="row-logo">🎷</div>
+            <div class="row-info">
+              <div class="row-title">Blue Note</div>
+              <div class="row-desc">国际顶级爵士，全球连锁旗舰</div>
+            </div>
+            <div class="row-count">1篇</div>
+            <div class="bar-expand-arrow" id="a-4-1">›</div>
+          </div>
+          <div class="note-feed" id="f-4-1">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/658164ab000000000801f8ed" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830ss1p1kk3uo05nfgdkgg8dm12m44070" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">2023-2024上海跨年指南 5大推荐方向任你选</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-4-2&#39;,&#39;a-4-2&#39;)">
+            <div class="row-logo">🎷</div>
+            <div class="row-info">
+              <div class="row-title">Mao Livehouse</div>
+              <div class="row-desc">摩登天空，独立音乐圣地</div>
+            </div>
+            <div class="row-count">1篇</div>
+            <div class="bar-expand-arrow" id="a-4-2">›</div>
+          </div>
+          <div class="note-feed" id="f-4-2">
+            <div class="note-masonry">
+        <a class="note-card" href="https://www.xiaohongshu.com/discovery/item/658164ab000000000801f8ed" target="_blank">
+          <img class="note-cover" src="./final今晚喝什么_files/1040g00830ss1p1kk3uo05nfgdkgg8dm12m44070" loading="lazy" onerror="this.parentElement.innerHTML=&#39;&lt;div class=note-cover-ph&gt;📸&lt;/div&gt;&#39;">
+          <div class="note-info"><div class="note-title">2023-2024上海跨年指南 5大推荐方向任你选</div></div>
+        </a></div>
+          </div>
+        </div>
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf(&#39;f-4-3&#39;,&#39;a-4-3&#39;)">
+            <div class="row-logo">🎷</div>
+            <div class="row-info">
+              <div class="row-title">Heyday</div>
+              <div class="row-desc">沉浸式复古名伶演唱</div>
+            </div>
+            
+            <div class="bar-expand-arrow" id="a-4-3">›</div>
+          </div>
+          <div class="note-feed" id="f-4-3">
+            <div style="text-align:center;padding:12px;font-size:12px;color:var(--text-sub)">暂无笔记</div>
+          </div>
+        </div></div></div></div>
+      </div>
+
+    </div>
+
+    <!-- ③ LOADING -->
+    <div id="loading" class="hidden loading-wrap">
+      <div class="orb"></div>
+      <div class="loading-txt">正在为你选今晚这一杯…</div>
+    </div>
+
+    <!-- ④ RESULT -->
+    <div id="result" class="hidden result-container"></div>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast">我信你个鬼，继续喝！ 😏</div>
+
+    <div id="share-overlay" class="share-overlay">
+      <div class="share-box">
+        <div id="share-card" class="share-card"></div>
+        <div class="share-tip">截图这张卡，或者复制文案去发小红书。</div>
+        <div class="share-actions">
+          <button class="btn-large btn-outline btn-half" onclick="closeShareCard()">先不发</button>
+          <button class="btn-large btn-primary btn-half" onclick="copyShareCaption()">复制文案</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL: Roulette -->
+    <div id="roulette-modal" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-label">今晚结账人选</div>
+        <div class="modal-victim" id="roulette-result" style="color: var(--orange);">头发最少的大哥
+今晚由 TA 买单</div>
+        <button class="btn-large btn-primary" onclick="closeModal(&#39;roulette-modal&#39;)">就这么定了</button>
+      </div>
+    </div>
+
+    <!-- MODAL: Almanac -->
+    <div id="almanac-modal" class="modal-overlay">
+      <div class="modal-box">
+        <div class="almanac-icon" id="al-icon"></div>
+        <div class="almanac-verdict" id="al-verdict"></div>
+        <div class="almanac-detail" id="al-detail"></div>
+        <div class="almanac-tags" id="al-tags"></div>
+        <button class="btn-large btn-primary" onclick="closeModal(&#39;almanac-modal&#39;)">收下了</button>
+      </div>
+    </div>
+
+    <!-- Footer inside screen -->
+    <div style="
+      text-align: center;
+      padding: 16px 0 28px;
+      font-size: 11px;
+      color: rgba(255,138,0,0.4);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      line-height: 1.9;
+      flex-shrink: 0;
+    ">
+      <div>fr. 可爱的旺旺</div>
+      <div>祝你天天开心 🧡</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+let notDrinkClick = 0, currentTaste = null, currentDrink = null, currentSource = 'taste', currentMBTI = null, mbtiQuestionIndex = 0, mbtiAnswers = { E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0 };
+
+const BAR_DATA    = {"鸡尾酒精选": {"icon": "🍹", "desc": "精品调酒 · 大师手作", "bars": [{"name": "COA", "desc": "亚洲鸡尾酒No.1，龙舌兰专门店", "count": 10, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/64254c12000000001303eab9", "title": "亚洲top50酒吧🍹上海占三家？！", "img": "http://sns-img-qn.xhscdn.com/1000g008290f3oiqfm0005opk470m5qto174qoio?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/671f58e3000000001600f340", "title": "2天喝完12家bar，上海资深酒鬼5A级景区推荐", "img": "http://sns-img-qn.xhscdn.com/1040g2sg319g9qq0t7a705nm7o98gbtdck213seg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/666c6318000000001d015ba5", "title": "北京朋友圈和上海朋友圈的区别，是真事儿", "img": "http://sns-img-qn.xhscdn.com/1040g2sg3141haq9jicl04a35nooqir12h9ua330?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5a07dbef3860855f3f8e6192", "title": "最全！超实用！超详细！🇹🇭吐血整理泰国十二天自由行攻略", "img": "http://sns-img-qn.xhscdn.com/0ae13fd7-18e8-45db-99c6-3b6c20835463?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64b91bd00000000017019fab", "title": "上海酒吧红黑榜❗️个人榜单", "img": "http://sns-img-qn.xhscdn.com/1000g0082r1rhsmik602048s5529heai52bf1k3g?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64b798ec000000001c018405", "title": "2023亚洲五十强酒吧出炉，上海全军覆没", "img": "http://sns-img-qn.xhscdn.com/1000g0082qruknueju00048n5a00cj8u27c0fkbg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/691b666d000000000d03fd95", "title": "Bar Leone偶遇王嘉尔", "img": "http://sns-img-qn.xhscdn.com/note_pre_post_uhdr/1040g3r031p0eadvoiu0048lcbun6bf548mcll08?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/59c618ec07ef1c6c3f1d8701", "title": "玩转海南环岛最全景点攻略—北纬10度的日光倾城", "img": "http://sns-img-qn.xhscdn.com/ecbc89da-7529-4e0d-abde-64b0f38383d9?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/62204cca000000002103aaea", "title": "这个临街超有氛围感的西餐厅太好拍了📷", "img": "http://sns-img-qn.xhscdn.com/5dd990a9-4592-3628-85cd-ffe994b9c4f4?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5ca4ace2000000000f021089", "title": "来上海！一定要喝漂亮的酒！！！！！", "img": "http://sns-img-qn.xhscdn.com/1040g2sg315vbdp031ab04001lv2cthp5anotsi0?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Union Trading Company", "desc": "亚洲Top50，南方冰茶是招牌，walk-in限定", "count": 6, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/64254c12000000001303eab9", "title": "亚洲top50酒吧🍹上海占三家？！", "img": "http://sns-img-qn.xhscdn.com/1000g008290f3oiqfm0005opk470m5qto174qoio?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/63a80ba20000000019020b8a", "title": "微醺就好🍹饮一杯魔都快乐水", "img": "http://sns-img-qn.xhscdn.com/1000g0081pn6kdeqeg00g4a600m6ogofotu414m8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/630c90ac0000000011035d34", "title": "人头马的精湛「技邑」", "img": "http://sns-img-qn.xhscdn.com/01028t016gcalweafb70112ytau0zxy3ug?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5a8f3be91b7d6531d813d468", "title": "🇩🇰丹麦旅行|哥本哈根最全面游记 看这一篇就够啦💖", "img": "http://sns-img-qn.xhscdn.com/e32d74df-55c0-473d-a544-f2ae2f7ba88f?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64b798ec000000001c018405", "title": "2023亚洲五十强酒吧出炉，上海全军覆没", "img": "http://sns-img-qn.xhscdn.com/1000g0082qruknueju00048n5a00cj8u27c0fkbg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5ca4ace2000000000f021089", "title": "来上海！一定要喝漂亮的酒！！！！！", "img": "http://sns-img-qn.xhscdn.com/1040g2sg315vbdp031ab04001lv2cthp5anotsi0?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Speak Low", "desc": "亚洲Top50，书架后的暗门，三层美式复古", "count": 4, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/64254523000000001300c49c", "title": "十大上海值得去的酒吧｜小众又高级", "img": "http://sns-img-qn.xhscdn.com/1000g008290bne7sfm0005nq23850bg10mqjh3u0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/6940e068000000001b0277c0", "title": "该收起对越南的偏见了", "img": "http://sns-img-qn.xhscdn.com/note_pre_post_uhdr/1040g3r031q50hifmno305n6ceis46oidurldoi8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/68aee52e000000001c006bcc", "title": "录播客时聊酒 录完播客喝酒", "img": "http://sns-img-qn.xhscdn.com/spectrum/1040g0k031lmfcnreks005n47hkskllf061fs77g?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5db9d74b000000000100a53a", "title": "Recommendation|高质感上海酒吧推荐（一）", "img": "http://sns-img-qn.xhscdn.com/c0e99079-e713-38ea-a5f2-58a6dfcc56ca?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Sober Company", "desc": "咖啡+餐厅+酒吧三合一，找到隐藏吧台", "count": 4, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/6724cdc6000000001901b9da", "title": "清吧能不能不要再做精装的马尿了", "img": "http://sns-img-qn.xhscdn.com/1040g008319lkbkgs7g005pakmrm17atisqeh9ug?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/63a153e4000000001f00bc9b", "title": "意难平系列😭2022上海宝藏小店闭店清单🧾", "img": "http://sns-img-qn.xhscdn.com/1000g0081osutg4qdc0004a554633je8ebg0rbo8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64b798ec000000001c018405", "title": "2023亚洲五十强酒吧出炉，上海全军覆没", "img": "http://sns-img-qn.xhscdn.com/1000g0082qruknueju00048n5a00cj8u27c0fkbg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5db9d74b000000000100a53a", "title": "Recommendation|高质感上海酒吧推荐（一）", "img": "http://sns-img-qn.xhscdn.com/c0e99079-e713-38ea-a5f2-58a6dfcc56ca?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "J.Boroski", "desc": "昆虫主题，无酒单，告诉调酒师喜好定制", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/64254c12000000001303eab9", "title": "亚洲top50酒吧🍹上海占三家？！", "img": "http://sns-img-qn.xhscdn.com/1000g008290f3oiqfm0005opk470m5qto174qoio?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/647735f800000000140251d5", "title": "夜晚的巨富长，魔都年轻人的乌托邦！", "img": "http://sns-img-qn.xhscdn.com/1000g0082j0eaiveii05g5n5udq2lhutpau0l9n8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/63cfd47a000000001c0371ff", "title": "上海好喝的酒吧1⃣️……", "img": "http://sns-img-qn.xhscdn.com/1000g0081uijmkf8es00040913c786epbqckm8bo?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "CHAR", "desc": "精品清吧，环境极佳", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/602a01460000000001027cbf", "title": "上海\"最好吃的餐厅\"全在这里了，很多都实惠", "img": "http://sns-img-qn.xhscdn.com/99673c4c-e993-3581-8a34-faf104caa846?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5a73add591c72c07a35779a9", "title": "香港血拼攻略(打折卡分享)➕香港吃喝玩乐", "img": "http://sns-img-qn.xhscdn.com/052bbc86-06bc-4352-a80c-77a94f8cc9d1?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/62204cca000000002103aaea", "title": "这个临街超有氛围感的西餐厅太好拍了📷", "img": "http://sns-img-qn.xhscdn.com/5dd990a9-4592-3628-85cd-ffe994b9c4f4?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "1515", "desc": "精品鸡尾酒，低调精致", "count": 2, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/646dcf8600000000140245e6", "title": "30+治愈自己，享受偶尔独自旅行与放空的快乐", "img": "http://sns-img-qn.xhscdn.com/1000g0082hrn9arkiu00g4a4f1v94kqu8cevvm0o?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/655733760000000033001854", "title": "合集：）上海圣诞氛围打卡攻略🎄持续更新", "img": "http://sns-img-qn.xhscdn.com/1040g00830usp2f9ll62040ondojgec1878vj1g8?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "ORIGIN", "desc": "原创调酒，有自己的风格", "count": 2, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/5f3be39b0000000001003084", "title": "生日当天咱们都有哪些优惠？🈶️👭薅羊毛", "img": "http://sns-img-qn.xhscdn.com/03180f42-7efb-3f7f-8be7-42602d1c31a8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5ef42419000000000101ec03", "title": "上海探店📍一家被名字耽误的实力好餐厅", "img": "http://sns-img-qn.xhscdn.com/3bece5e1-aa51-3bdf-a5d8-e29d3e1410e7?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Highball", "desc": "Highball专门店，清爽系", "count": 2, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/67260fd1000000003c0195ef", "title": "减肥酒鬼喝什么", "img": "http://sns-img-qn.xhscdn.com/1040g008319mr0g1lnc3g5nm7o98gbtdc5i5c7eg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/630c90ac0000000011035d34", "title": "人头马的精湛「技邑」", "img": "http://sns-img-qn.xhscdn.com/01028t016gcalweafb70112ytau0zxy3ug?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "ELEVATOR", "desc": "电梯门后的惊喜小吧", "count": 2, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/5dafc995000000000100a7cc", "title": "🔴上海最全最棒最适合拍照酒吧club推荐🔵上", "img": "http://sns-img-qn.xhscdn.com/58a734a6-b796-37bd-97e7-3cbb66e27d77?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/69434138000000001b022bd2", "title": "kpop冷知识：MCD后台有个装艺人用的袖珍电梯", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k031q7bcn2v7g0g4a17mkcphpg89eu7400?imageView2/2/w/540/format/jpg/q/75"}]}]}, "夜店Club": {"icon": "🎧", "desc": "躁动现场 · 不眠魔都", "bars": [{"name": "RADI", "desc": "INS复兴公园3楼，K-pop+欧美流行，人气No.1", "count": 11, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/66f650da000000002c02e409", "title": "ins复兴乐园太好玩了 难怪158没人..", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31887jk1bk6705pk3vuujcj7tjjatu40?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac", "title": "上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️", "img": "http://sns-img-qn.xhscdn.com/1040g00830ts5j61o4k005or4roo7qgu121oqpb0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64254c12000000001303eab9", "title": "亚洲top50酒吧🍹上海占三家？！", "img": "http://sns-img-qn.xhscdn.com/1000g008290f3oiqfm0005opk470m5qto174qoio?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/67f28c10000000001c017d4a", "title": "上海热门酒吧八大推荐", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31mh71q8ikqog5ocm15i40modqme4l7g?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64e47712000000001201bd08", "title": "bar测评（3）‖ins复兴公园酒吧测评+推荐", "img": "http://sns-img-qn.xhscdn.com/1040g00830o2omi7120405obmnijgjqsk0vgl7qg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/67b2d975000000002903095e", "title": "卡上换歌的那一秒太爽了", "img": "http://sns-img-qn.xhscdn.com/1040g00831e0b98tege004anshio14aio5o3gmt8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/63a80ba20000000019020b8a", "title": "微醺就好🍹饮一杯魔都快乐水", "img": "http://sns-img-qn.xhscdn.com/1000g0081pn6kdeqeg00g4a600m6ogofotu414m8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/67e4212f000000000b0142b2", "title": "不是。。我真能扫出来。。", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k031fgf6ku274104a0s52a7m95e57sjmu0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/630c90ac0000000011035d34", "title": "人头马的精湛「技邑」", "img": "http://sns-img-qn.xhscdn.com/01028t016gcalweafb70112ytau0zxy3ug?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64b798ec000000001c018405", "title": "2023亚洲五十强酒吧出炉，上海全军覆没", "img": "http://sns-img-qn.xhscdn.com/1000g0082qruknueju00048n5a00cj8u27c0fkbg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5ca4ace2000000000f021089", "title": "来上海！一定要喝漂亮的酒！！！！！", "img": "http://sns-img-qn.xhscdn.com/1040g2sg315vbdp031ab04001lv2cthp5anotsi0?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "44KW", "desc": "最时尚Club，Techno+嘻哈双厅，超模聚集地", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/63a153e4000000001f00bc9b", "title": "意难平系列😭2022上海宝藏小店闭店清单🧾", "img": "http://sns-img-qn.xhscdn.com/1000g0081osutg4qdc0004a554633je8ebg0rbo8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5dafc995000000000100a7cc", "title": "🔴上海最全最棒最适合拍照酒吧club推荐🔵上", "img": "http://sns-img-qn.xhscdn.com/58a734a6-b796-37bd-97e7-3cbb66e27d77?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5f081aa6000000000101e9b4", "title": "⚠️ 来上海玩不要再去这些地方啦！", "img": "http://sns-img-qn.xhscdn.com/1dbe2649-bd7d-3741-91de-b4dd893ef456?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Arkham", "desc": "嘻哈俱乐部，国潮潮人聚集地", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/5d4aa4b20000000028022876", "title": "上海酒吧丨超好玩超小众的地下蹦迪club合集", "img": "http://sns-img-qn.xhscdn.com/0907222d-e93d-3b81-ae96-8f565fc568c6?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5dafc995000000000100a7cc", "title": "🔴上海最全最棒最适合拍照酒吧club推荐🔵上", "img": "http://sns-img-qn.xhscdn.com/58a734a6-b796-37bd-97e7-3cbb66e27d77?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/6486f5880000000013037d04", "title": "妈呀，我才知道去蹦迪有这么多规矩", "img": "http://sns-img-qn.xhscdn.com/1000g0082kturpa8j200049dqdoslods5hk4fan8?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Potent", "desc": "友好男男bar，气氛超好，多元包容", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/5f081aa6000000000101e9b4", "title": "⚠️ 来上海玩不要再去这些地方啦！", "img": "http://sns-img-qn.xhscdn.com/1dbe2649-bd7d-3741-91de-b4dd893ef456?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/606c594500000000010289df", "title": "上海100家酒吧.21-30｜Hiphop酒吧合集", "img": "http://sns-img-qn.xhscdn.com/118f4264-af16-39e7-b213-a7b2cf66ae9b?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/665b51e1000000001401bddf", "title": "女生建议定期去男男bar", "img": "http://sns-img-qn.xhscdn.com/1040g2sg313gqlcqa209g48ngpnt12s2th4f7vm8?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "NINJA", "desc": "地下Hiphop夜店，rapper汇聚地", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/5f081aa6000000000101e9b4", "title": "⚠️ 来上海玩不要再去这些地方啦！", "img": "http://sns-img-qn.xhscdn.com/1dbe2649-bd7d-3741-91de-b4dd893ef456?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/6486f5880000000013037d04", "title": "妈呀，我才知道去蹦迪有这么多规矩", "img": "http://sns-img-qn.xhscdn.com/1000g0082kturpa8j200049dqdoslods5hk4fan8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/606c594500000000010289df", "title": "上海100家酒吧.21-30｜Hiphop酒吧合集", "img": "http://sns-img-qn.xhscdn.com/118f4264-af16-39e7-b213-a7b2cf66ae9b?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "HOOD", "desc": "老牌Hiphop，舞池大气氛好", "count": 2, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac", "title": "上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️", "img": "http://sns-img-qn.xhscdn.com/1040g00830ts5j61o4k005or4roo7qgu121oqpb0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/63ffc9f500000000270111f1", "title": "上海真没啥好玩的😅", "img": "http://sns-img-qn.xhscdn.com/1000g00824dq8lacfc0305n2dgl3490al33g13hg?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Akoma", "desc": "上海最大Hiphop Club，明星偶遇率超高", "count": 2, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac", "title": "上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️", "img": "http://sns-img-qn.xhscdn.com/1040g00830ts5j61o4k005or4roo7qgu121oqpb0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/606c594500000000010289df", "title": "上海100家酒吧.21-30｜Hiphop酒吧合集", "img": "http://sns-img-qn.xhscdn.com/118f4264-af16-39e7-b213-a7b2cf66ae9b?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "JADE", "desc": "韩国江南团队，Bounce风格", "count": 2, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac", "title": "上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️", "img": "http://sns-img-qn.xhscdn.com/1040g00830ts5j61o4k005or4roo7qgu121oqpb0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5dafc995000000000100a7cc", "title": "🔴上海最全最棒最适合拍照酒吧club推荐🔵上", "img": "http://sns-img-qn.xhscdn.com/58a734a6-b796-37bd-97e7-3cbb66e27d77?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "BOOMSHAKE", "desc": "知名连锁，年轻人多，帅哥美女", "count": 2, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac", "title": "上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️", "img": "http://sns-img-qn.xhscdn.com/1040g00830ts5j61o4k005or4roo7qgu121oqpb0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/647d10bb0000000011011390", "title": "Ferg人太nice啦 超级期待8号的演出～", "img": "http://sns-img-qn.xhscdn.com/1000g0082jna4odeja00049t4fthvuatr98dje7o?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Le Baron", "desc": "法式高端夜店，丝绒红色，最难进Top3", "count": 1, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/5dff82120000000001003143", "title": "上海宝藏酒吧🍹蹦过最野的迪💕全场靓仔靓妹", "img": "http://sns-img-qn.xhscdn.com/593462ae-e22b-359e-8bbd-b5f4b0c9e9e3?imageView2/2/w/540/format/jpg/q/75"}]}]}, "高空观景": {"icon": "🌆", "desc": "天际线 · 城市之上", "bars": [{"name": "Flair", "desc": "丽思卡尔顿顶层，直面东方明珠最佳席位", "count": 15, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/65f81e98000000001203fd54", "title": "在上海，花100块就能体验到的纸醉金迷", "img": "http://sns-img-qn.xhscdn.com/1040g008310fvv8kc6a005pd3q250nie6lin7t2g?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/685fb0440000000010010aa9", "title": "上海三大顶奢酒店周边citywalk", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831j9231s72gkg5nuv9alg8dm0sru8l08?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/630de8f10000000012039346", "title": "上海旅游必做28件小事🔥少一件都不完整", "img": "http://sns-img-qn.xhscdn.com/01028u01kip5rf0uv590113zvwidan49ez?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/608a81e3000000000102e39a", "title": "五一假期千万别来上海‼️如果非要来话…", "img": "http://sns-img-qn.xhscdn.com/065c4664-cb96-349a-9a51-7fe5787cf8d8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/6816ed35000000002203709a", "title": "每个来沪朋友都会被我带来这里...", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31h22m55pj8805n5udq2lhutpiaogc18?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/694bfa58000000001d03eb81", "title": "十年前的上海浦东丽思卡尔顿跨年记录。", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31qjkc1bg724g4a56j8di71lcp6uepp8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/66f55690000000002a035e4a", "title": "在上海 花过最值的几笔钱...", "img": "http://sns-img-qn.xhscdn.com/1040g008318775ii23q4g49vkrkco1uh1c2savu8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/68c92720000000001301fb87", "title": "每个来沪朋友都会被我带来...（合集）", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831mg44t475i4g49vkrkco1uh1d4mltb0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/67e4cc50000000000900c3b8", "title": "每个来沪朋友都会被我带来...", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831fh43geo6a0g49vkrkco1uh199uvtj8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/665360dd000000000c01816e", "title": "在上海 花小钱装大杯", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31393pngsg47049vkrkco1uh1crrqt78?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/66c6f2fe000000001f014da9", "title": "按下生活的暂停键", "img": "http://sns-img-qn.xhscdn.com/1040g2sg316pvcu61447049sv0fc3jng5bqviu88?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/60fce03800000000010292a8", "title": "上海|网红露台酒吧 Flair顶层看最美夜景🌃", "img": "http://sns-img-qn.xhscdn.com/61ade102-62a1-3478-922c-a6dd1d50c963?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/674474300000000002019c69", "title": "在上海如何花小钱坐享三件套！！！（💰65内）", "img": "http://sns-img-qn.xhscdn.com/1040g00831bqoog4j0u4040uvogk594dage1ska0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/67c1baa4000000000603f90e", "title": "在上海如何花小钱坐享三件套（均50）🥂", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831ees35sb0ue040uvogk594dar0a0n98?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5e130df00000000001009152", "title": "🌆春节去哪儿玩？上海三天两晚最全旅游攻略", "img": "http://sns-img-qn.xhscdn.com/568ebd5f-5369-394b-b63c-0c77a77f0fc3?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "ROOF", "desc": "屋顶酒吧，城市绿洲", "count": 13, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/66b4a55b000000001e01b36d", "title": "在上海｜静安寺附近超火的屋顶bar！🥃", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31683dmu9gse05p75tudga6foblspnd8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/6571e9b9000000000901f03b", "title": "（合集）人均50r，在上海花小钱装大杯🥂", "img": "http://sns-img-qn.xhscdn.com/1040g2sg30scsp7mp3i2g5p061ipaaprvdtri9r0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/666443b50000000015012e9a", "title": "女大✈️日本7天6晚超详细攻略（阪进东出）", "img": "http://sns-img-qn.xhscdn.com/1040g2sg313pjg75uhm705n9l3ir4ntnu4vghcl0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5e802a49000000000100a5da", "title": "低成本打卡网红酒吧～上海艾迪逊酒店-ROOF", "img": "http://sns-img-qn.xhscdn.com/706a2c92-4442-3d5e-9895-4d2b43bd4023?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/668aa7930000000003024ae6", "title": "北京这些牛逼的酒吧 完全不输上海纽约", "img": "http://sns-img-qn.xhscdn.com/1040g2sg314v36cog0m004a5qmrbr73t5bk7v218?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5f297bc10000000001005347", "title": "下午茶的门槛看一个城市对贫富的包容程度", "img": "http://sns-img-qn.xhscdn.com/7d4e7f9a-db3a-3aa0-8dd5-0c815ac5ca47?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/641fe0ff0000000013000f87", "title": "一起俯瞰东方明珠～", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31j3vegmshgfg5oghtl4k1ihhqcmpo88?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64acce7f000000003500a317", "title": "上海本地人都说我这份攻略做得太🐂了！！", "img": "http://sns-img-qn.xhscdn.com/1000g0082phppa80jq00049ih3g9k9g026tk2cu8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5cac61ba000000000e0209c9", "title": "上海露台季终于到啦🤩整理了几个常去的餐厅", "img": "http://sns-img-qn.xhscdn.com/ab776391-e431-3add-a18f-227d09685777?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/67c1baa4000000000603f90e", "title": "在上海如何花小钱坐享三件套（均50）🥂", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831ees35sb0ue040uvogk594dar0a0n98?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/65d764f4000000000b0158d8", "title": "在上海如何花小钱坐享三件套（均50）🥂", "img": "http://sns-img-qn.xhscdn.com/1040g2sg30vg09srs661g40uvogk594dasdcphj8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5f27bd910000000001002c30", "title": "魔都外滩风景的rooftop餐厅", "img": "http://sns-img-qn.xhscdn.com/dc53413f-fc8b-37e0-b10d-c09fb14d70e3?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64210e89000000001303fb31", "title": "上海周末情侣约会指南❤️破冰好去处🍫", "img": "http://sns-img-qn.xhscdn.com/1000g00828gj42dcfe06g40gn43uetjd6qa9ale8?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Shake", "desc": "放克灵魂乐现场，餐酒俱佳", "count": 9, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/650bf797000000001303cb2a", "title": "上海Citywalk必逛路线思南路+新天地", "img": "http://sns-img-qn.xhscdn.com/1040g00830p9c6s7246005p2kq2nk5fqnm22l2sg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/65a2488b000000001d0304ac", "title": "上海酒吧夜店蹦迪💃🏻热门CLUB攻略指南‼️‼️", "img": "http://sns-img-qn.xhscdn.com/1040g00830ts5j61o4k005or4roo7qgu121oqpb0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/68843ee90000000011000893", "title": "上海浦东机场T2国际出发安检后有什么", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k031kcqrdolig005olrf036dc52b4feu80?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/602a01460000000001027cbf", "title": "上海\"最好吃的餐厅\"全在这里了，很多都实惠", "img": "http://sns-img-qn.xhscdn.com/99673c4c-e993-3581-8a34-faf104caa846?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/642e5787000000001300f8d0", "title": "我不建议任何在上海生活的人来阿那亚", "img": "http://sns-img-qn.xhscdn.com/1000g0082a3pjrfkgm0605ndjodg0811i9ofengg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/6518dc62000000001a022654", "title": "陆家嘴必吃必逛，看这一篇就够了‼️", "img": "http://sns-img-qn.xhscdn.com/1040g00830plv4gknmo004a1ef8c34ra2ctdbm70?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/647d10bb0000000011011390", "title": "Ferg人太nice啦 超级期待8号的演出～", "img": "http://sns-img-qn.xhscdn.com/1000g0082jna4odeja00049t4fthvuatr98dje7o?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/636cc67800000000230185a9", "title": "在上海别租房了！月付6k的长住酒店真的很香！", "img": "http://sns-img-qn.xhscdn.com/1000g0081iflr5eiak000474b17siv27fpjifgn0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5e130df00000000001009152", "title": "🌆春节去哪儿玩？上海三天两晚最全旅游攻略", "img": "http://sns-img-qn.xhscdn.com/568ebd5f-5369-394b-b63c-0c77a77f0fc3?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Sky Bar", "desc": "高空清吧，魔都全景", "count": 4, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/65ddb4cc000000000b022125", "title": "😍👉对号入座！看看你的酒量段位在哪个级别？", "img": "http://sns-img-qn.xhscdn.com/1040g00830vm6i235lq405nlq2tk08o955vrpo10?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/67c1baa4000000000603f90e", "title": "在上海如何花小钱坐享三件套（均50）🥂", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831ees35sb0ue040uvogk594dar0a0n98?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/65d764f4000000000b0158d8", "title": "在上海如何花小钱坐享三件套（均50）🥂", "img": "http://sns-img-qn.xhscdn.com/1040g2sg30vg09srs661g40uvogk594dasdcphj8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5e822ae1000000000100acd4", "title": "上海|最小资的街可不是只有田子坊和新天地", "img": "http://sns-img-qn.xhscdn.com/6cd4d0da-dde2-30cb-b65c-d84a8e77b3fd?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "The Captain", "desc": "外滩平价江景高空，性价比天花板", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/6571e9b9000000000901f03b", "title": "（合集）人均50r，在上海花小钱装大杯🥂", "img": "http://sns-img-qn.xhscdn.com/1040g2sg30scsp7mp3i2g5p061ipaaprvdtri9r0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/672b67c2000000003c01ac0f", "title": "在上海·花小钱装大杯的氛围感餐厅", "img": "http://sns-img-qn.xhscdn.com/1040g008319s2l2qm7c005neh4pog8rvjck1c400?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/681d912f000000002001d2f0", "title": "Summer vibe🏛️ °◞✭ ゛", "img": "http://sns-img-qn.xhscdn.com/1040g00831h8i6rav3in049bdolfdm0k0h6ltnsg?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Bar Rouge", "desc": "外滩18号顶层，魔都红色标志", "count": 1, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/5dcd5b2600000000010002a3", "title": "上海旅游景点🌟门票全攻略🌟交通住宿&", "img": "http://sns-img-qn.xhscdn.com/44581a9d-4148-34a7-9dca-8481656dc5b4?imageView2/2/w/540/format/jpg/q/75"}]}]}, "穷鬼精选": {"icon": "💸", "desc": "30元起喝 · 高性价比", "bars": [{"name": "The Nest", "desc": "高性价比精品清吧", "count": 5, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/65e34f66000000000b023763", "title": "以为外滩很美了...", "img": "http://sns-img-qn.xhscdn.com/1040g00830vrjjku15o6g49vkrkco1uh1c3rvrn8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/65f8bde4000000001302635b", "title": "上海真的已经next level...", "img": "http://sns-img-qn.xhscdn.com/1040g2sg310gj6a166k4049vkrkco1uh1j0dt8g0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/643e6f33000000000800f03e", "title": "合集：）永远为上海的露台和临街小酒馆着迷", "img": "http://sns-img-qn.xhscdn.com/1000g0082c2l8ijkgu04g49b0hq17l6nsvc7j7q0?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/67015489000000001b023e76", "title": "合集：）来上海旅游真的很喜欢外滩这几家餐厅", "img": "http://sns-img-qn.xhscdn.com/1040g008318ivpsgnjq0049b0hq17l6ns0054avo?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64a41a0500000000160268d8", "title": "合集：）旅游来外滩就吃这9家（人均没有很贵）", "img": "http://sns-img-qn.xhscdn.com/1000g0082ofplirmjs00049b0hq17l6nsr1po5fg?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Jolly", "desc": "30+搞定，青提起泡/山楂威士忌都是王牌", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/647735f800000000140251d5", "title": "夜晚的巨富长，魔都年轻人的乌托邦！", "img": "http://sns-img-qn.xhscdn.com/1000g0082j0eaiveii05g5n5udq2lhutpau0l9n8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64b154e500000000150313d5", "title": "City Walk｜上海酒鬼夜游微醺高性价比路线", "img": "http://sns-img-qn.xhscdn.com/1000g0082q3fdkluk60004a7ljljkbjqb4m12hg8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/643003a800000000130169a9", "title": "上海穷鬼鸡尾酒地图 | 全收集", "img": "http://sns-img-qn.xhscdn.com/1000g0082aaan3b6go0004a785tl7uao4e7mnvco?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "tonic", "desc": "30+奶茶感酒吧，可打包，送好看杯子", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/67260fd1000000003c0195ef", "title": "减肥酒鬼喝什么", "img": "http://sns-img-qn.xhscdn.com/1040g008319mr0g1lnc3g5nm7o98gbtdc5i5c7eg?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64b154e500000000150313d5", "title": "City Walk｜上海酒鬼夜游微醺高性价比路线", "img": "http://sns-img-qn.xhscdn.com/1000g0082q3fdkluk60004a7ljljkbjqb4m12hg8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/643003a800000000130169a9", "title": "上海穷鬼鸡尾酒地图 | 全收集", "img": "http://sns-img-qn.xhscdn.com/1000g0082aaan3b6go0004a785tl7uao4e7mnvco?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "lemon twist", "desc": "9.9金汤力，穷鬼必冲", "count": 3, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/647735f800000000140251d5", "title": "夜晚的巨富长，魔都年轻人的乌托邦！", "img": "http://sns-img-qn.xhscdn.com/1000g0082j0eaiveii05g5n5udq2lhutpau0l9n8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/64b154e500000000150313d5", "title": "City Walk｜上海酒鬼夜游微醺高性价比路线", "img": "http://sns-img-qn.xhscdn.com/1000g0082q3fdkluk60004a7ljljkbjqb4m12hg8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/643003a800000000130169a9", "title": "上海穷鬼鸡尾酒地图 | 全收集", "img": "http://sns-img-qn.xhscdn.com/1000g0082aaan3b6go0004a785tl7uao4e7mnvco?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "air by ounce", "desc": "50+有逼格，露台喝酒很小资", "count": 1, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/643003a800000000130169a9", "title": "上海穷鬼鸡尾酒地图 | 全收集", "img": "http://sns-img-qn.xhscdn.com/1000g0082aaan3b6go0004a785tl7uao4e7mnvco?imageView2/2/w/540/format/jpg/q/75"}]}]}, "爵士LiveHouse": {"icon": "🎷", "desc": "现场音乐 · 灵魂震颤", "bars": [{"name": "JZ Club", "desc": "上海老牌爵士圣地，经典不衰", "count": 4, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/648f99a8000000001203c675", "title": "演唱会现场级别的livehouse推荐这6家", "img": "http://sns-img-qn.xhscdn.com/1000g0082lvn05ckio02g5ougv8optbcphre8ku8?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/619e1c8e000000002103f5fe", "title": "广州探店｜广州最大的爵士乐酒吧💃🏻JZ Club", "img": "http://sns-img-qn.xhscdn.com/ef7c5af2-88a8-3e5f-b410-aac75bb6f76c?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5eb059cd00000000010031d8", "title": "上海最美马路①巨鹿路：从爱神花园到精致小店", "img": "http://sns-img-qn.xhscdn.com/de7e3c44-55df-3442-a326-3c69c3f5f0cb?imageView2/2/w/540/format/jpg/q/75"}, {"link": "https://www.xiaohongshu.com/discovery/item/5f081aa6000000000101e9b4", "title": "⚠️ 来上海玩不要再去这些地方啦！", "img": "http://sns-img-qn.xhscdn.com/1dbe2649-bd7d-3741-91de-b4dd893ef456?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Blue Note", "desc": "国际顶级爵士，全球连锁旗舰", "count": 1, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/658164ab000000000801f8ed", "title": "2023-2024上海跨年指南 5大推荐方向任你选", "img": "http://sns-img-qn.xhscdn.com/1040g00830ss1p1kk3uo05nfgdkgg8dm12m44070?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Mao Livehouse", "desc": "摩登天空，独立音乐圣地", "count": 1, "notes": [{"link": "https://www.xiaohongshu.com/discovery/item/658164ab000000000801f8ed", "title": "2023-2024上海跨年指南 5大推荐方向任你选", "img": "http://sns-img-qn.xhscdn.com/1040g00830ss1p1kk3uo05nfgdkgg8dm12m44070?imageView2/2/w/540/format/jpg/q/75"}]}, {"name": "Heyday", "desc": "沉浸式复古名伶演唱", "count": 0, "notes": []}]}};
+const DRINKS_DATA = [{"name": "“茉守成桂”", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k031pojvem34m0g5o53os1g8f3qrvjqmn0?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款金酒和茉莉花风味融合的清新鸡尾酒～酒味比较明显，甜度适中～金酒 45ml青柠汁 5ml原味糖浆 15ml东方树叶茉莉花茶 90ml新鲜桂圆肉 6颗桂花干 适量点缀桂圆肉捣碎出汁水，放入shake壶中，加入金酒、青柠汁、糖浆、茉莉花茶，摇晃15s，倒入放有冰块的杯中，桂花干和桂圆肉点缀即可。可根据看个人口味调整糖浆加入量。#适合在家微醺的酒[话题]# #漂亮酒[话题]# #在家调酒大作战[话题]# #金酒调酒[话题]# #今晚喝什么[话题]# #家庭调酒[话题]# #茉莉花茶调酒[话题]# #微醺[话题]# #鸡尾酒[话题]# #调酒[话题]#", "body": "一款金酒和茉莉花风味融合的清新鸡尾酒～酒味比较明显，甜度适中～金酒 45ml青柠汁 5ml原味糖浆 15ml东方树叶茉莉花茶 90ml新鲜桂圆肉 6颗桂花干 适量点缀桂圆肉捣碎出汁水，放入shake壶中，加入金酒、青柠汁、糖浆、茉莉花茶，摇晃15s，倒入放有冰块的杯中，桂花干和桂圆肉点缀即可。可根据看个人口味调整糖浆加入量。#适合在家微醺的酒[话题]# #漂亮酒[话题]# #在家调酒大作战[话题]# #金酒调酒[话题]# #今晚喝什么[话题]# #家庭调酒[话题]# #茉莉花茶调酒[话题]# #微醺[话题]# #鸡尾酒[话题]# #调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/69343178000000001e00d108", "name_clean": "“茉守成桂”", "base": "基酒", "flavor": "复合口味"}, {"name": "“咸狗”", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831luco10b527g5ov8h3cpt8shr117fc8?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款以伏特加或金酒为基酒，搭配葡萄柚汁调制而成的经典咸味鸡尾酒，果香浓郁，酸甜适中。伏特加 30ml葡萄柚汁 90ml盐 适量提前冰杯，葡萄柚片擦拭杯口，沾上盐边。雪克壶中加入伏特加、葡萄柚汁，加冰shake，过滤至酒杯中，柠檬片或葡萄柚片装饰即可。#今晚喝什么[话题]# #微醺[话题]##咸狗鸡尾酒[话题]#  #鸡尾酒[话题]# #家庭调酒[话题]# #漂亮酒[话题]# #在家调酒大作战[话题]# #伏特加调酒[话题]# #便利店调酒[话题]# #适合在家微醺的酒[话题]#", "body": "一款以伏特加或金酒为基酒，搭配葡萄柚汁调制而成的经典咸味鸡尾酒，果香浓郁，酸甜适中。伏特加 30ml葡萄柚汁 90ml盐 适量提前冰杯，葡萄柚片擦拭杯口，沾上盐边。雪克壶中加入伏特加、葡萄柚汁，加冰shake，过滤至酒杯中，柠檬片或葡萄柚片装饰即可。#今晚喝什么[话题]# #微醺[话题]##咸狗鸡尾酒[话题]#  #鸡尾酒[话题]# #家庭调酒[话题]# #漂亮酒[话题]# #在家调酒大作战[话题]# #伏特加调酒[话题]# #便利店调酒[话题]# #适合在家微醺的酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68b6ff4c000000001d00e8b7", "name_clean": "“咸狗”", "base": "基酒", "flavor": "复合口味"}, {"name": "“坎恰恰”", "img": "http://sns-img-qn.xhscdn.com/1040g00831jnhov49ig005ov8h3cpt8sh3gd7s28?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "是古巴最古老的鸡尾酒之一白朗姆 45ml青柠汁 15ml蜂蜜 15ml冰水 30-50ml摇壶中加入白朗姆、青柠汁、蜂蜜、水和冰块，混匀，倒入杯中，青柠块装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #便利店调酒[话题]# #漂亮酒[话题]# #朗姆酒调酒[话题]# #古巴酒[话题]# #适合在家微醺的酒[话题]# #微醺[话题]#", "body": "是古巴最古老的鸡尾酒之一白朗姆 45ml青柠汁 15ml蜂蜜 15ml冰水 30-50ml摇壶中加入白朗姆、青柠汁、蜂蜜、水和冰块，混匀，倒入杯中，青柠块装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #便利店调酒[话题]# #漂亮酒[话题]# #朗姆酒调酒[话题]# #古巴酒[话题]# #适合在家微醺的酒[话题]# #微醺[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/686e75a30000000010027ffc", "name_clean": "“坎恰恰”", "base": "基酒", "flavor": "复合口味"}, {"name": "“樱桃菲士”", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831jajmoor2ie05ov8h3cpt8shqg60of0?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "超级适合夏天的一款清爽漂亮酒🍒～金酒 45ml柠檬汁 15ml糖浆（车厘子味的更好） 20ml苏打水 适量车厘子 5颗车厘子放入摇壶中，捣碎，加入糖浆、金酒、柠檬汁，加冰混匀。杯中加满冰，滤入酒液，苏打水补满，车厘子装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #漂亮酒[话题]# #适合在家微醺的酒[话题]# #车厘子调酒[话题]# #金菲士[话题]# #金酒调酒[话题]#", "body": "超级适合夏天的一款清爽漂亮酒🍒～金酒 45ml柠檬汁 15ml糖浆（车厘子味的更好） 20ml苏打水 适量车厘子 5颗车厘子放入摇壶中，捣碎，加入糖浆、金酒、柠檬汁，加冰混匀。杯中加满冰，滤入酒液，苏打水补满，车厘子装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #漂亮酒[话题]# #适合在家微醺的酒[话题]# #车厘子调酒[话题]# #金菲士[话题]# #金酒调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68613455000000000d018b7b", "name_clean": "“樱桃菲士”", "base": "基酒", "flavor": "复合口味"}, {"name": "“草莓百利甜”", "img": "http://sns-img-qn.xhscdn.com/1040g00831ir7uulo0u005ov8h3cpt8shplrkjg8?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "草莓和奶油的搭配不会出错～百利甜 30ml伏特加 15ml纯牛奶 60ml鲜草莓 3-4个摇壶中加入百利甜、伏特加、纯牛奶，加冰摇匀；杯中放入草莓，捣棒捣碎，倒入酒液，草莓装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #漂亮酒[话题]# #草莓调酒[话题]# #草莓百利甜[话题]# #小甜酒[话题]# #便利店调酒[话题]#", "body": "草莓和奶油的搭配不会出错～百利甜 30ml伏特加 15ml纯牛奶 60ml鲜草莓 3-4个摇壶中加入百利甜、伏特加、纯牛奶，加冰摇匀；杯中放入草莓，捣棒捣碎，倒入酒液，草莓装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #漂亮酒[话题]# #草莓调酒[话题]# #草莓百利甜[话题]# #小甜酒[话题]# #便利店调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/685177c6000000002202bcca", "name_clean": "“草莓百利甜”", "base": "基酒", "flavor": "复合口味"}, {"name": "“葡萄气泡朗姆”", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831infbv5cgu7g5ov8h3cpt8shrb0u12o?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款清爽的葡萄🍇气泡朗姆酒～白朗姆 45mlNFC葡萄汁 90ml柠檬汁 10ml气泡水 适量摇壶中加入白朗姆、葡萄汁、柠檬汁，加冰shake混匀；杯中加冰，倒入混匀的酒液，气泡水补满即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #便利店调酒[话题]# #漂亮酒[话题]# #葡萄汁调酒[话题]# #适合在家微醺的酒[话题]##白朗姆调酒[话题]#", "body": "一款清爽的葡萄🍇气泡朗姆酒～白朗姆 45mlNFC葡萄汁 90ml柠檬汁 10ml气泡水 适量摇壶中加入白朗姆、葡萄汁、柠檬汁，加冰shake混匀；杯中加冰，倒入混匀的酒液，气泡水补满即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #便利店调酒[话题]# #漂亮酒[话题]# #葡萄汁调酒[话题]# #适合在家微醺的酒[话题]##白朗姆调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/684d9b9d0000000022028ea7", "name_clean": "“葡萄气泡朗姆”", "base": "基酒", "flavor": "复合口味"}, {"name": "“普通朋友”", "img": "http://sns-img-qn.xhscdn.com/1040g00831ijhl71i7q005ov8h3cpt8sh5th8fa0?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "备受身边女孩子好评的一款小甜酒～白朗姆 20ml伏特加 15ml蓝橙力娇 15ml养乐多 两瓶（200ml）薄荷叶 装饰杯中加冰，依次加入白朗姆、伏特加、蓝橙力娇、养乐多，吧勺提拉混匀，薄荷叶装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #漂亮酒[话题]##普通朋友[话题]# #养乐多调酒[话题]# #便利店调酒[话题]# #调酒配方[话题]#", "body": "备受身边女孩子好评的一款小甜酒～白朗姆 20ml伏特加 15ml蓝橙力娇 15ml养乐多 两瓶（200ml）薄荷叶 装饰杯中加冰，依次加入白朗姆、伏特加、蓝橙力娇、养乐多，吧勺提拉混匀，薄荷叶装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #漂亮酒[话题]##普通朋友[话题]# #养乐多调酒[话题]# #便利店调酒[话题]# #调酒配方[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68499620000000002202b2b6", "name_clean": "“普通朋友”", "base": "基酒", "flavor": "复合口味"}, {"name": "“菠萝金”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31ii5013enss05ov8h3cpt8shfqi502g?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "菠萝和金酒真的很搭～金酒 45ml柠檬汁 15ml菠萝汁 60ml干菠萝片 1片摇壶中依次加入金酒、柠檬汁、菠萝汁，加冰shake混匀；杯中加入球形冰，滤入酒液，菠萝片装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]##菠萝汁调酒[话题]#  #漂亮酒[话题]# #适合在家微醺的酒[话题]# #便利店调酒[话题]# #金酒调酒[话题]#", "body": "菠萝和金酒真的很搭～金酒 45ml柠檬汁 15ml菠萝汁 60ml干菠萝片 1片摇壶中依次加入金酒、柠檬汁、菠萝汁，加冰shake混匀；杯中加入球形冰，滤入酒液，菠萝片装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]##菠萝汁调酒[话题]#  #漂亮酒[话题]# #适合在家微醺的酒[话题]# #便利店调酒[话题]# #金酒调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/684828a80000000023014150", "name_clean": "“菠萝金”", "base": "基酒", "flavor": "复合口味"}, {"name": "“椰香龙舌兰”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31igss54d7ol05ov8h3cpt8shq0l41a8?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "感受椰奶与龙舌兰的风味碰撞💥喝起来是浓郁的椰奶香，细品也能尝到龙舌兰的风味，但酒精味儿没那么重。龙舌兰 45ml椰奶 90-120ml柠檬汁 10ml根据个人酒感的喜好程度来调节椰奶的加入量，90ml的加入量是我最喜欢的，酒量不太好的朋友可以调整椰奶量至120ml，更好入口一些。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #晚安酒[话题]# #漂亮酒[话题]# #椰香龙舌兰[话题]# #龙舌兰调酒[话题]# #便利店调酒[话题]# #在家调酒大作战[话题]#", "body": "感受椰奶与龙舌兰的风味碰撞💥喝起来是浓郁的椰奶香，细品也能尝到龙舌兰的风味，但酒精味儿没那么重。龙舌兰 45ml椰奶 90-120ml柠檬汁 10ml根据个人酒感的喜好程度来调节椰奶的加入量，90ml的加入量是我最喜欢的，酒量不太好的朋友可以调整椰奶量至120ml，更好入口一些。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #晚安酒[话题]# #漂亮酒[话题]# #椰香龙舌兰[话题]# #龙舌兰调酒[话题]# #便利店调酒[话题]# #在家调酒大作战[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/6846de4c000000002202f775", "name_clean": "“椰香龙舌兰”", "base": "基酒", "flavor": "复合口味"}, {"name": "“占有欲”", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831iffu8tr7q0g5ov8h3cpt8sho9fca70?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款在便利店也能调的小甜酒～伏特加 30ml葡萄汁 60ml柠檬味水溶C 七分满摇壶中加入伏特加、葡萄汁，混匀；杯中加冰，水溶C七分满，沿吧勺缓缓倒入混匀的酒液即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #占有欲调酒[话题]# #便利店调酒[话题]# #漂亮酒[话题]# #伏特加调酒[话题]#", "body": "一款在便利店也能调的小甜酒～伏特加 30ml葡萄汁 60ml柠檬味水溶C 七分满摇壶中加入伏特加、葡萄汁，混匀；杯中加冰，水溶C七分满，沿吧勺缓缓倒入混匀的酒液即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #占有欲调酒[话题]# #便利店调酒[话题]# #漂亮酒[话题]# #伏特加调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68456e3b00000000230179fb", "name_clean": "“占有欲”", "base": "基酒", "flavor": "复合口味"}, {"name": "“莫吉托”", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831ied4m627qi05ov8h3cpt8shegeq670?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "“麻烦给我的爱人来一杯莫吉托～我喜欢她微醺时的眼眸～”一款夏日必不可少的清爽型鸡尾酒，算是我的入门款鸡尾酒，对喝酒小白很友好。白朗姆 45ml青柠汁 15ml原味糖浆 15ml苏打水 适量青柠角/片 适量薄荷 6-8片青柠角放入杯中，捣出汁，薄荷叶拍醒后放入杯中，加满碎冰块，倒入白朗姆、糖浆，气泡水补满，吧勺轻轻提拉，青柠片薄荷叶装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #漂亮酒[话题]# #莫吉托[话题]# #白朗姆调酒[话题]# #适合在家微醺的酒[话题]#", "body": "“麻烦给我的爱人来一杯莫吉托～我喜欢她微醺时的眼眸～”一款夏日必不可少的清爽型鸡尾酒，算是我的入门款鸡尾酒，对喝酒小白很友好。白朗姆 45ml青柠汁 15ml原味糖浆 15ml苏打水 适量青柠角/片 适量薄荷 6-8片青柠角放入杯中，捣出汁，薄荷叶拍醒后放入杯中，加满碎冰块，倒入白朗姆、糖浆，气泡水补满，吧勺轻轻提拉，青柠片薄荷叶装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #漂亮酒[话题]# #莫吉托[话题]# #白朗姆调酒[话题]# #适合在家微醺的酒[话题]#", "link": "https://www.xiaohongshu.com/discovery/item/6844525b000000002300d4ac", "name_clean": "“莫吉托”", "base": "基酒", "flavor": "复合口味"}, {"name": "“菠萝冰酒”", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k831ied4m627qhg5ov8h3cpt8shcjv8t08?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款夏日清爽小甜酒，菠萝和茉莉花的风味很突出。白朗姆 40ml鲜菠萝汁 60ml茉莉花茶 60ml鲜菠萝汁不够甜的话可以加入少量糖浆增添风味。所有材料依次加入摇壶中，加冰摇匀，滤入杯中即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #菠萝冰酒[话题]# #白朗姆调酒[话题]#", "body": "一款夏日清爽小甜酒，菠萝和茉莉花的风味很突出。白朗姆 40ml鲜菠萝汁 60ml茉莉花茶 60ml鲜菠萝汁不够甜的话可以加入少量糖浆增添风味。所有材料依次加入摇壶中，加冰摇匀，滤入杯中即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #菠萝冰酒[话题]# #白朗姆调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68445201000000002300d271", "name_clean": "“菠萝冰酒”", "base": "基酒", "flavor": "复合口味"}, {"name": "“血橙玛格丽特”", "img": "http://sns-img-qn.xhscdn.com/notes_pre_post/1040g3k031ie9ls937i005ov8h3cpt8sh674oam8?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "一款由经典款“玛格丽特”创新而来的鸡尾酒，加入了血橙汁，降低了酒精的刺激口感，更好入口一些。龙舌兰 40ml君度 20ml青柠汁 20ml血橙汁 20ml盐 适量提前冰杯，杯口沾取盐边备用；shake杯中加入龙舌兰、君度、青柠汁、新鲜血橙汁，加冰shake，滤入杯中即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #玛格丽特[话题]# #血橙玛格丽特[话题]# #漂亮酒[话题]# #调酒配方[话题]# #在家调酒大作战[话题]#", "body": "一款由经典款“玛格丽特”创新而来的鸡尾酒，加入了血橙汁，降低了酒精的刺激口感，更好入口一些。龙舌兰 40ml君度 20ml青柠汁 20ml血橙汁 20ml盐 适量提前冰杯，杯口沾取盐边备用；shake杯中加入龙舌兰、君度、青柠汁、新鲜血橙汁，加冰shake，滤入杯中即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #玛格丽特[话题]# #血橙玛格丽特[话题]# #漂亮酒[话题]# #调酒配方[话题]# #在家调酒大作战[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/684434c5000000002300e16c", "name_clean": "“血橙玛格丽特”", "base": "基酒", "flavor": "复合口味"}, {"name": "“乌龙百利甜”", "img": "http://sns-img-qn.xhscdn.com/1040g00831id70pat7i4g5ov8h3cpt8shkshjjn0?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款喝起来像奶茶的小甜酒！奶香奶香的还带点茶味儿！酒精度数不高！对酒量不好的朋友很友好哦！百利甜奶油利口酒 30ml 伏特加 15ml纯牛奶 60ml三得利乌龙茶 60ml将所有材料加入shake壶中，加冰shake，过滤倒入杯中即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #百利甜调酒[话题]# #乌龙茶调酒[话题]# #乌龙百利甜[话题]# #漂亮酒[话题]# #在家调酒大作战[话题]#", "body": "一款喝起来像奶茶的小甜酒！奶香奶香的还带点茶味儿！酒精度数不高！对酒量不好的朋友很友好哦！百利甜奶油利口酒 30ml 伏特加 15ml纯牛奶 60ml三得利乌龙茶 60ml将所有材料加入shake壶中，加冰shake，过滤倒入杯中即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #百利甜调酒[话题]# #乌龙茶调酒[话题]# #乌龙百利甜[话题]# #漂亮酒[话题]# #在家调酒大作战[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68432c500000000023000343", "name_clean": "“乌龙百利甜”", "base": "基酒", "flavor": "复合口味"}, {"name": "“抹茶威士忌嗨棒”", "img": "http://sns-img-qn.xhscdn.com/1040g00831id70pat7i405ov8h3cpt8shk59p700?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "在香港喝到的一款很惊艳的highball！抹茶和威士忌意外地很搭！能闻到很浓郁的抹茶味儿，入口很清爽，气泡水有淡淡的青柠味，这个版本的嗨棒口感层次更丰富，酒味也比经典嗨棒要淡一些，喜欢嗨棒的小伙伴可以尝试一下[派对R]#今晚喝什么[话题]# #威士忌[话题]# #威士忌嗨棒[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #漂亮酒[话题]# #highball[话题]# #是时候微醺一下[话题]#", "body": "在香港喝到的一款很惊艳的highball！抹茶和威士忌意外地很搭！能闻到很浓郁的抹茶味儿，入口很清爽，气泡水有淡淡的青柠味，这个版本的嗨棒口感层次更丰富，酒味也比经典嗨棒要淡一些，喜欢嗨棒的小伙伴可以尝试一下[派对R]#今晚喝什么[话题]# #威士忌[话题]# #威士忌嗨棒[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #漂亮酒[话题]# #highball[话题]# #是时候微醺一下[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68432666000000002202a909", "name_clean": "“抹茶威士忌嗨棒”", "base": "基酒", "flavor": "复合口味"}, {"name": "“青柠威士忌酸”", "img": "http://sns-img-qn.xhscdn.com/1040g00831id70pat7i2g5ov8h3cpt8sh8e8m8j8?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "一款十分经典的鸡尾酒，相比于黄柠汁版本我更喜欢青柠汁版本的“威士忌酸”。波本威士忌 60ml青柠汁 22.5ml糖浆 22.5ml将所有材料依次加入shake壶中，加冰shake，滤出酒液即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #威士忌酸[话题]# #漂亮酒[话题]# #在家调酒大作战[话题]##适合在家微醺的酒[话题]# #威士忌调酒[话题]#", "body": "一款十分经典的鸡尾酒，相比于黄柠汁版本我更喜欢青柠汁版本的“威士忌酸”。波本威士忌 60ml青柠汁 22.5ml糖浆 22.5ml将所有材料依次加入shake壶中，加冰shake，滤出酒液即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #威士忌酸[话题]# #漂亮酒[话题]# #在家调酒大作战[话题]##适合在家微醺的酒[话题]# #威士忌调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/684321d7000000002202dd36", "name_clean": "“青柠威士忌酸”", "base": "基酒", "flavor": "复合口味"}, {"name": "“冰岛”", "img": "http://sns-img-qn.xhscdn.com/1040g00831id70pat7i1g5ov8h3cpt8shtplqae0?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款超漂亮的小甜酒！和keshi的magnolia适配度超高！白朗姆 45ml蓝橙力娇 15mlNFC椰子水 90-120ml青柠汁 5ml可根据自己酒精味道的接受程度来调酒椰子水的加入量哦。杯中加冰，椰子水八分满；shake杯中加入白朗姆、蓝橙力娇、青柠汁，混匀即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #漂亮酒[话题]# #冰岛鸡尾酒[话题]# #椰子水调酒[话题]# #白朗姆调酒[话题]# #在家调酒大作战[话题]#", "body": "一款超漂亮的小甜酒！和keshi的magnolia适配度超高！白朗姆 45ml蓝橙力娇 15mlNFC椰子水 90-120ml青柠汁 5ml可根据自己酒精味道的接受程度来调酒椰子水的加入量哦。杯中加冰，椰子水八分满；shake杯中加入白朗姆、蓝橙力娇、青柠汁，混匀即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #漂亮酒[话题]# #冰岛鸡尾酒[话题]# #椰子水调酒[话题]# #白朗姆调酒[话题]# #在家调酒大作战[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68431d6c00000000230138dd", "name_clean": "“冰岛”", "base": "基酒", "flavor": "复合口味"}, {"name": "“青瓜薄荷金菲士”", "img": "http://sns-img-qn.xhscdn.com/1040g00831id70pat7i105ov8h3cpt8shaaej7m0?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "一款清爽、夏日气息十足的鸡尾酒金酒 45ml青瓜汁 15ml柠檬汁 15ml薄荷糖浆 15-20ml气泡水 适量杯中加冰，放入青瓜片；将所有材料依次加入shake壶中混匀，倒入杯中，薄荷叶装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #适合在家微醺的酒[话题]##薄荷调酒[话题]# #金酒调酒[话题]# #金菲士[话题]#", "body": "一款清爽、夏日气息十足的鸡尾酒金酒 45ml青瓜汁 15ml柠檬汁 15ml薄荷糖浆 15-20ml气泡水 适量杯中加冰，放入青瓜片；将所有材料依次加入shake壶中混匀，倒入杯中，薄荷叶装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #适合在家微醺的酒[话题]##薄荷调酒[话题]# #金酒调酒[话题]# #金菲士[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68431a96000000002202ca6b", "name_clean": "“青瓜薄荷金菲士”", "base": "基酒", "flavor": "复合口味"}, {"name": "“杀死橙子”", "img": "http://sns-img-qn.xhscdn.com/1040g00831id70pat7i005ov8h3cpt8shfq4294g?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "最近很爱喝的一款漂亮小甜酒儿伏特加 45ml新鲜血橙汁 90ml青柠汁 10-15ml将所有材料加入shake杯中，shake混匀后倒入杯中即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #伏特加调酒[话题]# #橙汁调酒[话题]#", "body": "最近很爱喝的一款漂亮小甜酒儿伏特加 45ml新鲜血橙汁 90ml青柠汁 10-15ml将所有材料加入shake杯中，shake混匀后倒入杯中即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #微醺[话题]# #在家调酒大作战[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #伏特加调酒[话题]# #橙汁调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/684318d40000000023016038", "name_clean": "“杀死橙子”", "base": "基酒", "flavor": "复合口味"}, {"name": "“雪国”", "img": "http://sns-img-qn.xhscdn.com/1040g00831i81og9k6o005ov8h3cpt8shami93f8?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款起源及盛行于日本的一款鸡尾酒伏特加 45ml君度 15ml青柠汁 15ml白砂糖 适量绿樱桃 一个（正好用完了就没放，正常是需要一个）提前冰杯，杯口沾糖，shake杯中加入伏特加、君度、青柠汁，shake混匀，倒入杯中，绿樱桃放入杯中装饰即可（家里用完了我就没放）。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #微醺[话题]# #雪国[话题]# #伏特加调酒[话题]# #家庭调酒[话题]# #微醺一下鸡尾酒[话题]##雪国鸡尾酒[话题]# #调酒[话题]#", "body": "一款起源及盛行于日本的一款鸡尾酒伏特加 45ml君度 15ml青柠汁 15ml白砂糖 适量绿樱桃 一个（正好用完了就没放，正常是需要一个）提前冰杯，杯口沾糖，shake杯中加入伏特加、君度、青柠汁，shake混匀，倒入杯中，绿樱桃放入杯中装饰即可（家里用完了我就没放）。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #微醺[话题]# #雪国[话题]# #伏特加调酒[话题]# #家庭调酒[话题]# #微醺一下鸡尾酒[话题]##雪国鸡尾酒[话题]# #调酒[话题]#", "link": "https://www.xiaohongshu.com/discovery/item/683dd182000000002202dc94", "name_clean": "“雪国”", "base": "基酒", "flavor": "复合口味"}, {"name": "”荔枝玫瑰马天尼”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31i80sr35mqe05ov8h3cpt8shgraaku8?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款度数很高的“小甜酒”，荔枝和玫瑰太搭啦！很适合女孩子的微醺小甜酒！伏特加 45ml荔枝利口酒 15-20ml玫瑰风味糖浆 15ml青柠汁 5ml食用玫瑰碎 适量提前冰杯，杯口用青柠片沾湿后沾取玫瑰碎，shake杯中加入伏特加、荔枝利口酒、糖浆及青柠汁，加冰shake，倒入杯中即可。想喝荔枝味更浓郁的可以加入适量新鲜荔枝汁，或者增加荔枝利口酒的量为20ml，酒味会淡一些，很适合女孩子喝，我个人很喜欢喝这款！#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #玫瑰荔枝马天尼[话题]#  #马天尼[话题]# #小甜酒[话题]# #伏特加调酒[", "body": "一款度数很高的“小甜酒”，荔枝和玫瑰太搭啦！很适合女孩子的微醺小甜酒！伏特加 45ml荔枝利口酒 15-20ml玫瑰风味糖浆 15ml青柠汁 5ml食用玫瑰碎 适量提前冰杯，杯口用青柠片沾湿后沾取玫瑰碎，shake杯中加入伏特加、荔枝利口酒、糖浆及青柠汁，加冰shake，倒入杯中即可。想喝荔枝味更浓郁的可以加入适量新鲜荔枝汁，或者增加荔枝利口酒的量为20ml，酒味会淡一些，很适合女孩子喝，我个人很喜欢喝这款！#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #玫瑰荔枝马天尼[话题]#  #马天尼[话题]# #小甜酒[话题]# #伏特加调酒[", "link": "https://www.xiaohongshu.com/discovery/item/683dca60000000002301d6a2", "name_clean": "”荔枝玫瑰马天尼”", "base": "基酒", "flavor": "复合口味"}, {"name": "“威士忌酸”", "img": "http://sns-img-qn.xhscdn.com/1040g00831httg44r3a105ov8h3cpt8shhmiujb0?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "一款十分经典的sour鸡尾酒，是个人最喜欢喝的一款。威士忌 60ml柠檬汁 30ml糖浆 20ml蛋清 半个（按个人口味 可加可不加 我这里没加）将所有材料加入shake壶中，加冰shake，倒入古典杯中，柠檬片装饰即可。我个人不太喜欢蛋清的味道所以没加。糖浆可根据柠檬酸度适当加减用量。#今晚喝什么[话题]##威士忌酸[话题]#  #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]##威士忌调酒[话题]#  #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]#", "body": "一款十分经典的sour鸡尾酒，是个人最喜欢喝的一款。威士忌 60ml柠檬汁 30ml糖浆 20ml蛋清 半个（按个人口味 可加可不加 我这里没加）将所有材料加入shake壶中，加冰shake，倒入古典杯中，柠檬片装饰即可。我个人不太喜欢蛋清的味道所以没加。糖浆可根据柠檬酸度适当加减用量。#今晚喝什么[话题]##威士忌酸[话题]#  #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]##威士忌调酒[话题]#  #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]#", "link": "https://www.xiaohongshu.com/discovery/item/68337048000000002301ebba", "name_clean": "“威士忌酸”", "base": "基酒", "flavor": "复合口味"}, {"name": "“莫斯科骡子”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31hoio6njj47g5ov8h3cpt8sh49sna5g?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "一款清爽带点辛辣的鸡尾酒，是经典的伏特加鸡尾酒之一。伏特加 45ml青柠汁 15ml干姜水 120ml铜杯中加满碎冰，加入伏特加、青柠汁，干姜水，轻轻提拉混匀，加入青柠片和薄荷叶装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #伏特加调酒[话题]# #伏特加[话题]# #是时候微醺一下[话题]# #莫斯科骡子[话题]# #莫斯科骡子调酒[话题]# #莫斯科骡子配方[话题]# #经典调酒[话题]# #经典调酒", "body": "一款清爽带点辛辣的鸡尾酒，是经典的伏特加鸡尾酒之一。伏特加 45ml青柠汁 15ml干姜水 120ml铜杯中加满碎冰，加入伏特加、青柠汁，干姜水，轻轻提拉混匀，加入青柠片和薄荷叶装饰即可。#今晚喝什么[话题]# #鸡尾酒[话题]# #晚安酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #伏特加调酒[话题]# #伏特加[话题]# #是时候微醺一下[话题]# #莫斯科骡子[话题]# #莫斯科骡子调酒[话题]# #莫斯科骡子配方[话题]# #经典调酒[话题]# #经典调酒", "link": "https://www.xiaohongshu.com/discovery/item/682dfaa50000000023015b9c", "name_clean": "“莫斯科骡子”", "base": "基酒", "flavor": "复合口味"}, {"name": "“百香果酸”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31hi7cskf3ae05ov8h3cpt8sh4uplajo?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款夏日气息浓厚的酸类鸡尾酒，第一口就能感受到百香果的香甜口感。金酒 45ml柠檬汁 30ml茉莉花茶 60ml糖浆 20ml百香果 1-2个将上述材料依次加入shake壶中，混匀即可。以上配方可根据个人口味适量调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #金酒[话题]# #金酒调酒[话题]# #百香果[话题]# #百香果调酒[话题]# #茉莉花茶调酒[话题]# #百香果酸[话题]#", "body": "一款夏日气息浓厚的酸类鸡尾酒，第一口就能感受到百香果的香甜口感。金酒 45ml柠檬汁 30ml茉莉花茶 60ml糖浆 20ml百香果 1-2个将上述材料依次加入shake壶中，混匀即可。以上配方可根据个人口味适量调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #金酒[话题]# #金酒调酒[话题]# #百香果[话题]# #百香果调酒[话题]# #茉莉花茶调酒[话题]# #百香果酸[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/682778e40000000023012bec", "name_clean": "“百香果酸”", "base": "基酒", "flavor": "复合口味"}, {"name": "“南方”", "img": "http://sns-img-qn.xhscdn.com/1040g00831hgrhp2kkq005ov8h3cpt8shmdhh4e0?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款酸甜平衡，薄荷香气十足的经典鸡尾酒。金酒 40ml青柠汁 20ml糖浆 20ml薄荷叶 6-8片提前冰杯，薄荷拍几下，再将金酒、糖浆、青柠汁依次加入shake杯中，混匀即可。以上比例可根据个人口味适当调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #南方[话题]# #南方鸡尾酒[话题]# #金酒[话题]# #金酒调酒[话题]##薄荷调酒[话题]#", "body": "一款酸甜平衡，薄荷香气十足的经典鸡尾酒。金酒 40ml青柠汁 20ml糖浆 20ml薄荷叶 6-8片提前冰杯，薄荷拍几下，再将金酒、糖浆、青柠汁依次加入shake杯中，混匀即可。以上比例可根据个人口味适当调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #南方[话题]# #南方鸡尾酒[话题]# #金酒[话题]# #金酒调酒[话题]##薄荷调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/68260ed7000000002202ea65", "name_clean": "“南方”", "base": "基酒", "flavor": "复合口味"}, {"name": "“长岛冰茶”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31h9aab42kocg5ov8h3cpt8shmlojpmo?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "“拿来长岛冰茶换我半晚安睡”一款度数高但入口酒味不浓的鸡尾酒，很适合当晚安酒。白朗姆 15ml伏特加 15ml金酒 15ml龙舌兰 15ml君度 15ml柠檬汁 15ml糖浆 10ml将上述材料依次加入柯林杯中，吧勺轻轻提拉，混匀，柠檬片装饰即可。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]##伏特加调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #长岛冰茶[话题]#", "body": "“拿来长岛冰茶换我半晚安睡”一款度数高但入口酒味不浓的鸡尾酒，很适合当晚安酒。白朗姆 15ml伏特加 15ml金酒 15ml龙舌兰 15ml君度 15ml柠檬汁 15ml糖浆 10ml将上述材料依次加入柯林杯中，吧勺轻轻提拉，混匀，柠檬片装饰即可。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]##伏特加调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #长岛冰茶[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/681e766a000000002301fb8e", "name_clean": "“长岛冰茶”", "base": "基酒", "flavor": "复合口味"}, {"name": "“玛格丽特”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31h9aab42kobg5ov8h3cpt8shkqm7f00?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "被称作“鸡尾酒之后”，它是除马天尼以外世界上知名度最高的传统鸡尾酒之一。龙舌兰 40ml君度 20ml青柠汁 20ml盐 适量提前冰杯，青柠擦拭杯口，沾取盐边备用。shake壶中加入龙舌兰、君度、青柠汁，shake混匀，倒入玛格丽特杯中，青柠片或青柠角装饰即可。以上配方可依据个人口味适当调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #龙舌兰[话题]# #玛格丽特[话题]# #玛格丽特鸡尾酒[话题]# #龙舌兰调酒[话题]# #君度[话题]#", "body": "被称作“鸡尾酒之后”，它是除马天尼以外世界上知名度最高的传统鸡尾酒之一。龙舌兰 40ml君度 20ml青柠汁 20ml盐 适量提前冰杯，青柠擦拭杯口，沾取盐边备用。shake壶中加入龙舌兰、君度、青柠汁，shake混匀，倒入玛格丽特杯中，青柠片或青柠角装饰即可。以上配方可依据个人口味适当调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #龙舌兰[话题]# #玛格丽特[话题]# #玛格丽特鸡尾酒[话题]# #龙舌兰调酒[话题]# #君度[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/681e765b0000000023015b3c", "name_clean": "“玛格丽特”", "base": "基酒", "flavor": "复合口味"}, {"name": "“橙花”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31h9aab42koag5ov8h3cpt8shebu47bg?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款口感清爽，常作为餐前酒的鸡尾酒。金酒 30ml君度 15ml青柠汁 10ml橙汁 30ml红石榴糖浆 5ml将上述材料依次加入shake壶中，混匀后倒入杯中，橙皮装饰即可。以上配方可根据个人口味适量调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #橙花[话题]# #橙花鸡尾酒[话题]# #经典鸡尾酒橙花[话题]# #金酒[话题]# #金酒调酒[话题]# #橙汁调酒[话题]#", "body": "一款口感清爽，常作为餐前酒的鸡尾酒。金酒 30ml君度 15ml青柠汁 10ml橙汁 30ml红石榴糖浆 5ml将上述材料依次加入shake壶中，混匀后倒入杯中，橙皮装饰即可。以上配方可根据个人口味适量调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #橙花[话题]# #橙花鸡尾酒[话题]# #经典鸡尾酒橙花[话题]# #金酒[话题]# #金酒调酒[话题]# #橙汁调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/681e64ac000000002300308c", "name_clean": "“橙花”", "base": "基酒", "flavor": "复合口味"}, {"name": "“龙舌兰日出”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31h9aab42ko9g5ov8h3cpt8shepn1lpg?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款以墨西哥龙舌兰酒为基酒，加入鲜橙汁和红石榴糖浆调制而成的鸡尾酒。龙舌兰 60ml橙汁 120-150ml红石榴糖浆 10-15ml杯中加冰，加入龙舌兰、橙汁，最后使用吧勺沿壁缓缓加入红石榴糖浆，轻轻提拉，装饰即可。以上配方可依据个人口味调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #龙舌兰日出[话题]# #龙舌兰[话题]# #龙舌兰调酒[话题]# #橙汁调酒[话题]#", "body": "一款以墨西哥龙舌兰酒为基酒，加入鲜橙汁和红石榴糖浆调制而成的鸡尾酒。龙舌兰 60ml橙汁 120-150ml红石榴糖浆 10-15ml杯中加冰，加入龙舌兰、橙汁，最后使用吧勺沿壁缓缓加入红石榴糖浆，轻轻提拉，装饰即可。以上配方可依据个人口味调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #调酒[话题]# #适合在家微醺的酒[话题]# #漂亮酒[话题]# #龙舌兰日出[话题]# #龙舌兰[话题]# #龙舌兰调酒[话题]# #橙汁调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/681e56aa000000002300297e", "name_clean": "“龙舌兰日出”", "base": "基酒", "flavor": "复合口味"}, {"name": "“淘金热”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31h7qti17jadg5ov8h3cpt8sht8pm5u0?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "一款类似于威士忌酸，但口感层次更丰富的鸡尾酒波本威士忌 60ml柠檬汁 22.5ml蜂蜜 22.5ml将上述材料依次加入shake壶中，混匀后倒入酒杯中即可。以上配方可根据个人口味适当调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #蜂蜜的膝盖[话题]# #淘金热[话题]# #威士忌调酒[话题]# #威士忌[话题]# #调酒[话题]# #调酒配方[话题]# #漂亮酒[话题]#", "body": "一款类似于威士忌酸，但口感层次更丰富的鸡尾酒波本威士忌 60ml柠檬汁 22.5ml蜂蜜 22.5ml将上述材料依次加入shake壶中，混匀后倒入酒杯中即可。以上配方可根据个人口味适当调整。#今晚喝什么[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #家庭调酒[话题]# #微醺[话题]# #微醺一下鸡尾酒[话题]# #在家调酒大作战[话题]# #蜂蜜的膝盖[话题]# #淘金热[话题]# #威士忌调酒[话题]# #威士忌[话题]# #调酒[话题]# #调酒配方[话题]# #漂亮酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/681cd25e0000000023013e75", "name_clean": "“淘金热”", "base": "基酒", "flavor": "复合口味"}, {"name": "“金汤力”", "img": "http://sns-img-qn.xhscdn.com/1040g00831go6ik18j8005ov8h3cpt8shtjp46vg?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "一款非常清爽清新的鸡尾酒金酒 45ml青柠汁 10ml汤力水 160-180ml杯中加冰，依次加入金酒、汤力水、青柠汁，轻轻提拉即可。以上配方可根据个人口味适量调整#在家调酒大作战[话题]# #鸡尾酒[话题]# #微醺一下鸡尾酒[话题]# #金汤力[话题]# #金酒[话题]# #金酒调酒[话题]# #添加利金酒[话题]# #今晚喝什么[话题]# #晚安酒[话题]# #微醺[话题]# #家庭调酒[话题]#", "body": "一款非常清爽清新的鸡尾酒金酒 45ml青柠汁 10ml汤力水 160-180ml杯中加冰，依次加入金酒、汤力水、青柠汁，轻轻提拉即可。以上配方可根据个人口味适量调整#在家调酒大作战[话题]# #鸡尾酒[话题]# #微醺一下鸡尾酒[话题]# #金汤力[话题]# #金酒[话题]# #金酒调酒[话题]# #添加利金酒[话题]# #今晚喝什么[话题]# #晚安酒[话题]# #微醺[话题]# #家庭调酒[话题]# ", "link": "https://www.xiaohongshu.com/discovery/item/680ccf91000000001d00b0cf", "name_clean": "“金汤力”", "base": "基酒", "flavor": "复合口味"}, {"name": "“富士山下”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31gmv6mtkja9g5ov8h3cpt8shipvkjro?imageView2/2/w/540/format/jpg/q/75", "taste": "酸", "recipe": "“谁能凭爱意要富士山私有”超高颜值的一款调酒伏特加 45ml蓝橙力娇 20ml酸奶 30-40ml青柠汁 10-15ml以上配方可按个人口味适当调整#微醺[话题]# #微醺时刻[话题]# #家庭调酒[话题]# #鸡尾酒[话题]# #富士山下[话题]# #酸奶酒[话题]# #伏特加调酒[话题]# #今晚喝什么[话题]# #晚安酒[话题]# #喝点[话题]# #漂亮酒[话题]#", "body": "“谁能凭爱意要富士山私有”超高颜值的一款调酒伏特加 45ml蓝橙力娇 20ml酸奶 30-40ml青柠汁 10-15ml以上配方可按个人口味适当调整#微醺[话题]# #微醺时刻[话题]# #家庭调酒[话题]# #鸡尾酒[话题]# #富士山下[话题]# #酸奶酒[话题]# #伏特加调酒[话题]# #今晚喝什么[话题]# #晚安酒[话题]# #喝点[话题]# #漂亮酒[话题]#", "link": "https://www.xiaohongshu.com/discovery/item/680b9650000000001c02ec6e", "name_clean": "“富士山下”", "base": "基酒", "flavor": "复合口味"}, {"name": "“菠萝马天尼”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31gmv6mtkja8g5ov8h3cpt8shmmka0k8?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款甜美清新又优雅的马天尼伏特加 60ml菠萝汁 45ml青柠汁 15ml糖浆 10-15ml菠萝片 一片装饰以上配方可按个人口味适当调整#在家调酒大作战[话题]# #适合在家微醺的酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #马天尼[话题]# #菠萝马天尼[话题]# #今晚喝什么[话题]# #微醺[话题]# #调酒[话题]# #伏特加调酒[话题]#", "body": "一款甜美清新又优雅的马天尼伏特加 60ml菠萝汁 45ml青柠汁 15ml糖浆 10-15ml菠萝片 一片装饰以上配方可按个人口味适当调整#在家调酒大作战[话题]# #适合在家微醺的酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #马天尼[话题]# #菠萝马天尼[话题]# #今晚喝什么[话题]# #微醺[话题]# #调酒[话题]# #伏特加调酒[话题]#", "link": "https://www.xiaohongshu.com/discovery/item/680b937e000000001d008683", "name_clean": "“菠萝马天尼”", "base": "基酒", "flavor": "复合口味"}, {"name": "“斗牛士”", "img": "http://sns-img-qn.xhscdn.com/1040g2sg31gmv6mtkja7g5ov8h3cpt8sht1kkkio?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款风味十足的龙舌兰斗牛士龙舌兰 30ml菠萝汁 45-60ml青柠汁 15ml喜欢酒味重一些的朋友，菠萝汁加入量45ml即可，喜欢酒味淡一些的话，菠萝汁加入量可增加到60ml。#微醺[话题]# #家庭调酒[话题]# #鸡尾酒[话题]# #龙舌兰[话题]# #晚安酒[话题]# #斗牛士[话题]# #今晚喝什么[话题]# #调酒[话题]#", "body": "一款风味十足的龙舌兰斗牛士龙舌兰 30ml菠萝汁 45-60ml青柠汁 15ml喜欢酒味重一些的朋友，菠萝汁加入量45ml即可，喜欢酒味淡一些的话，菠萝汁加入量可增加到60ml。#微醺[话题]# #家庭调酒[话题]# #鸡尾酒[话题]# #龙舌兰[话题]# #晚安酒[话题]# #斗牛士[话题]# #今晚喝什么[话题]# #调酒[话题]#", "link": "https://www.xiaohongshu.com/discovery/item/680b8f5c000000001d002164", "name_clean": "“斗牛士”", "base": "基酒", "flavor": "复合口味"}, {"name": "“椰林飘香”", "img": "http://sns-img-qn.xhscdn.com/1040g00831gmtk8ib38005ov8h3cpt8shcm2naf8?imageView2/2/w/540/format/jpg/q/75", "taste": "甜", "recipe": "一款热带风情十足的鸡尾酒白朗姆 60ml菠萝汁 90ml椰奶 60ml青柠汁5ml糖浆10ml有马利宝椰子朗姆酒的话，可以把配方中的椰奶替换成马利宝和少量椰奶，椰子风味更浓郁#微醺一下鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #椰林飘香[话题]# #朗姆酒[话题]# #今晚喝什么[话题]#", "body": "一款热带风情十足的鸡尾酒白朗姆 60ml菠萝汁 90ml椰奶 60ml青柠汁5ml糖浆10ml有马利宝椰子朗姆酒的话，可以把配方中的椰奶替换成马利宝和少量椰奶，椰子风味更浓郁#微醺一下鸡尾酒[话题]# #家庭调酒[话题]# #晚安酒[话题]# #鸡尾酒[话题]# #椰林飘香[话题]# #朗姆酒[话题]# #今晚喝什么[话题]#", "link": "https://www.xiaohongshu.com/discovery/item/680b801d000000001c02ff9d", "name_clean": "“椰林飘香”", "base": "基酒", "flavor": "复合口味"}];
+
+
+// ── NAV ──────────────────────────────────────────────
+function switchView(id) {
+  ['step1','main-content','step2','taste','taste-picker','mbti-quiz','mbti-card','bar','loading','result'].forEach(x => $(x) && $(x).classList.add('hidden'));
+  $('global-header').classList.add('hidden');
+  if (['step2','taste','taste-picker','mbti-quiz','mbti-card','bar'].includes(id)) {
+    $('main-content').classList.remove('hidden');
+    $(id).classList.remove('hidden');
+    $('global-header').classList.remove('hidden');
+    const t = {
+      step2:{g:'STEP 1',t:'去哪里喝?'},
+      taste:{g:'STEP 2',t:'自己调一杯'},
+      'taste-picker':{g:'TASTE PICK',t:'按口味抽一杯'},
+      'mbti-quiz':{g:'MBTI TEST',t:'测测你的微醺人格'},
+      'mbti-card':{g:'MBTI RESULT',t:'你的酒系人格'},
+      bar:{g:'BAR GUIDE',t:'魔都精选'}
+    };
+    $('top-greeting').textContent = t[id].g;
+    $('main-title').textContent   = t[id].t;
+  } else { $(id).classList.remove('hidden'); }
+}
+function goStep2()      { switchView('step2'); }
+function backTo(id)     { switchView(id); }
+function notDrink() {
+  notDrinkClick++;
+  if (notDrinkClick===1) { $('toast').classList.add('show'); setTimeout(()=>$('toast').classList.remove('show'),2500); }
+  else goStep2();
+}
+
+// ── MODALS ───────────────────────────────────────────
+function openModal(id)  { $(id).classList.add('show'); }
+function closeModal(id) { $(id).classList.remove('show'); }
+
+// ── ROULETTE ─────────────────────────────────────────
+const payers = ["今天穿黑衣服的","头发最少的大哥","手机电量最低的","母胎单身最久的","刚才说话最大声的","全场最好看的那位","最后一个到的人","微信步数最少的那位"];
+function spinRoulette() {
+  openModal('roulette-modal');
+  $('roulette-result').textContent = '随机中…';
+  $('roulette-result').style.color = 'var(--text-sub)';
+  setTimeout(()=>{
+    const v = payers[Math.floor(Math.random()*payers.length)];
+    $('roulette-result').textContent = v+'\n今晚由 TA 买单';
+    $('roulette-result').style.color = 'var(--orange)';
+  },480);
+}
+
+// ── ALMANAC ──────────────────────────────────────────
+const almanacData = {
+  ji: [
+    { icon:'🍀', verdict:'大吉', detail:'今晚星相极佳，举杯天地响应。', dos:['慢慢喝','和对的人聊天','今晚适合续摊'], donts:['联系前任','替人买单'] },
+    { icon:'✨', verdict:'小吉', detail:'微风向好，这一杯喝了有好事。', dos:['先碰杯','说个心愿'], donts:['空腹猛灌','把话说得太满'] },
+    { icon:'🌕', verdict:'中吉', detail:'月圆之兆，酒到喉头万事顺。',  dos:['多喝水','邀身边人同饮'], donts:['一个人闷喝','把情绪藏进杯底'] },
+  ],
+  xiong: [
+    { icon:'⚠️', verdict:'小凶', detail:'今晚气场略弱，但喝了会好的。', dos:['慢喝','喝前好好吃饭'], donts:['喝完发消息','开车'] },
+    { icon:'🌪️', verdict:'末吉', detail:'末吉非凶，喝一杯驱散阴霾。',  dos:['选一杯甜口的','配点小吃'], donts:['空腹','比谁喝得多'] },
+  ]
+};
+
+function showAlmanac(type) {
+  const pool = almanacData[type];
+  const d    = pool[Math.floor(Math.random()*pool.length)];
+  $('al-icon').textContent    = d.icon;
+  $('al-verdict').textContent = d.verdict;
+  $('al-verdict').className   = 'almanac-verdict ' + type;
+  $('al-detail').textContent  = d.detail;
+  $('al-tags').innerHTML =
+    d.dos.map(s=>`<span class="almanac-tag tag-do">宜 ${s}</span>`).join('') +
+    d.donts.map(s=>`<span class="almanac-tag tag-dont">忌 ${s}</span>`).join('');
+  openModal('almanac-modal');
+}
+
+// ── DRINKS ───────────────────────────────────────────
+
+const ESSENTIAL_DRINKS = [
+  { name:'Old Fashioned', name_clean:'Old Fashioned', img:'', taste:'苦', recipe:'波本威士忌 60ml｜方糖 1块｜苦精 2 dash｜橙皮装饰。经典、硬朗、骨架清晰。', body:'经典苦感威士忌鸡尾酒，适合想要力量感和掌控感的夜晚。', link:'', base:'威士忌', flavor:'经典苦感' },
+  { name:'Negroni', name_clean:'Negroni', img:'', taste:'苦', recipe:'金酒 30ml｜金巴利 30ml｜甜味美思 30ml。苦感高级，轮廓分明。', body:'强存在感经典苦味鸡尾酒，适合有态度的夜晚。', link:'', base:'金酒', flavor:'苦感高级' },
+  { name:'Manhattan', name_clean:'Manhattan', img:'', taste:'苦', recipe:'黑麦/波本威士忌 50ml｜甜味美思 20ml｜苦精 2 dash。稳重、成熟。', body:'秩序感很强的经典鸡尾酒，适合靠谱稳稳型。', link:'', base:'威士忌', flavor:'醇厚微苦' },
+  { name:'Martini', name_clean:'Martini', img:'', taste:'苦', recipe:'金酒 60ml｜干味美思 10ml。极简、冷静、克制。', body:'非常克制的经典鸡尾酒，适合理性派。', link:'', base:'金酒', flavor:'极简干冽' },
+  { name:'Highball', name_clean:'Highball', img:'', taste:'苦', recipe:'威士忌 45ml｜苏打水补满。清爽利落。', body:'清冷干净，适合不喜欢复杂废话的夜晚。', link:'', base:'威士忌', flavor:'清爽微苦' },
+  { name:'Whiskey Sour', name_clean:'Whiskey Sour', img:'', taste:'酸', recipe:'波本威士忌 45ml｜柠檬汁 25ml｜糖浆 15ml。经典酸甜平衡。', body:'经典中带一点变化，适合有讨论度的夜晚。', link:'', base:'威士忌', flavor:'酸甜平衡' },
+  { name:'French 75', name_clean:'French 75', img:'', taste:'酸', recipe:'金酒 30ml｜柠檬汁 15ml｜糖浆 10ml｜起泡酒补满。轻盈又体面。', body:'优雅发光型酒款，适合体面又有锋芒的场合。', link:'', base:'金酒', flavor:'轻盈酸爽' },
+  { name:'Cosmopolitan', name_clean:'Cosmopolitan', img:'', taste:'甜', recipe:'伏特加 40ml｜橙味利口酒 15ml｜蔓越莓汁 30ml｜青柠汁 10ml。明快会发光。', body:'有颜色也有态度，适合热情灵感型。', link:'', base:'伏特加', flavor:'果香甜感' },
+  { name:'Baileys Milk', name_clean:'Baileys Milk', img:'', taste:'甜', recipe:'百利甜 40ml｜牛奶 90ml。柔和顺口。', body:'温柔治愈型夜晚很适合的奶香小甜酒。', link:'', base:'百利甜', flavor:'奶香甜口' },
+  { name:'Aviation', name_clean:'Aviation', img:'', taste:'酸', recipe:'金酒 45ml｜樱桃利口酒 15ml｜柠檬汁 15ml。安静但有记忆点。', body:'适合细腻观察、安静但特别的夜晚。', link:'', base:'金酒', flavor:'花果酸感' }
+];
+ESSENTIAL_DRINKS.forEach(item => {
+  if (!DRINKS_DATA.some(d => (d.name_clean || d.name) === item.name_clean)) DRINKS_DATA.push(item);
+});
+
+const MBTI_QUESTIONS = [
+  { q:'周五晚上你更想？', a:{ text:'和朋友去热闹场子碰杯', type:'E' }, b:{ text:'找个安静角落慢慢喝', type:'I' } },
+  { q:'选酒时你更看重？', a:{ text:'稳，不出错，经典', type:'S' }, b:{ text:'新鲜，有记忆点，特别一点', type:'N' } },
+  { q:'喝酒时你更像？', a:{ text:'先看配方和口味逻辑', type:'T' }, b:{ text:'先看心情和氛围对不对', type:'F' } },
+  { q:'你更常见的状态？', a:{ text:'提前安排，按计划玩', type:'J' }, b:{ text:'到了再说，跟着感觉走', type:'P' } },
+  { q:'朋友局里你通常？', a:{ text:'主动带气氛', type:'E' }, b:{ text:'先观察再进入状态', type:'I' } },
+  { q:'今晚这杯酒你更想要？', a:{ text:'有态度、有力量感', type:'T' }, b:{ text:'柔和、治愈、顺口', type:'F' } }
+];
+
+const MBTI_PROFILES = {
+  ESTJ:{ role:'掌控全场的人', drink:'Old Fashioned', vibe:'经典硬朗', copy:'你不太相信随机这件事。\n比起尝试，你更倾向于掌控。\n所以今晚这杯，不该有意外。', tags:['干脆','控制感','经典派'] },
+  ESTP:{ role:'越夜越来劲的人', drink:'玛格丽特', vibe:'利落带冲劲', copy:'你喜欢现场有点速度。\n一杯太安静的酒，撑不起今晚。\n要有锋利感，也要有开场力。', tags:['带劲','反应快','有现场感'] },
+  ESFJ:{ role:'让所有人都舒服的人', drink:'莫吉托', vibe:'清爽好亲近', copy:'你很会照顾气氛，也很会照顾别人。\n所以适合你的，不该有攻击性。\n清爽一点，大家都会靠近你。', tags:['好亲近','松弛感','照顾型'] },
+  ESFP:{ role:'一出现就有亮度的人', drink:'龙舌兰日出', vibe:'明亮热闹', copy:'你适合那些一上桌就有画面的东西。\n不用太解释，也不用太复杂。\n好看、热烈、一下子就到位。', tags:['亮眼','会玩','热场'] },
+  ENTJ:{ role:'判断很快的人', drink:'Negroni', vibe:'苦感高级', copy:'你不会点一杯“好喝”的酒。\n你会点一杯“对”的酒。\n这杯就是。', tags:['锋利','判断力','苦感上瘾'] },
+  ENTP:{ role:'总能把局面玩活的人', drink:'Whiskey Sour', vibe:'经典里带变化', copy:'你不喜欢太标准的答案。\n最好是有一点熟悉，也有一点新鲜。\n像这杯，刚好。', tags:['会聊','机灵','有反差'] },
+  ENFJ:{ role:'人群里自然发光的人', drink:'French 75', vibe:'优雅发光', copy:'你不是最吵的那个人。\n但很多时候，大家会下意识看向你。\n所以这杯要体面，也要有锋芒。', tags:['体面','有存在感','拿得出手'] },
+  ENFP:{ role:'把气氛点亮的人', drink:'Cosmopolitan', vibe:'明快会发光', copy:'你不需要太重的开场。\n一点颜色，一点情绪，一点好玩。\n今晚就会顺起来。', tags:['灵感型','发光','轻快'] },
+  ISTJ:{ role:'稳稳拿下的人', drink:'Manhattan', vibe:'秩序感强', copy:'你会更相信经过时间检验的东西。\n这杯不需要讨巧。\n只要够稳，就已经很有说服力。', tags:['稳定','可靠','讲秩序'] },
+  ISTP:{ role:'不爱废话的人', drink:'Highball', vibe:'清冷干净', copy:'你不需要一杯很会表演的酒。\n干净一点，利落一点。\n事情简单了，反而更对味。', tags:['利落','克制','清爽'] },
+  ISFJ:{ role:'温柔但很有分寸的人', drink:'Baileys Milk', vibe:'柔和治愈', copy:'你会先感受到别人的情绪。\n所以今晚这杯，不该太硬。\n柔一点，顺一点，会更像你。', tags:['温柔','治愈','低压力'] },
+  ISFP:{ role:'审美比情绪先到的人', drink:'椰林飘香', vibe:'柔软梦幻', copy:'你会先记住画面，再记住味道。\n所以适合你的酒，最好有一点氛围。\n最好入口也像晚风。', tags:['梦感','有画面','柔软'] },
+  INTJ:{ role:'冷静又挑剔的人', drink:'Martini', vibe:'极简克制', copy:'你不太接受多余的东西。\n酒也是。\n越干净、越准确，反而越接近你。', tags:['冷感','精准','高级感'] },
+  INTP:{ role:'脑子比人先微醺的人', drink:'金汤力', vibe:'清醒微妙', copy:'你适合那种不会打断思路的酒。\n清爽一点，但不能无聊。\n最好喝着喝着，想法也慢慢打开。', tags:['思考型','清醒微醺','有趣'] },
+  INFJ:{ role:'安静但很会看人的人', drink:'Aviation', vibe:'安静又特别', copy:'你不太需要热闹来证明自己在场。\n一杯有记忆点、但不喧哗的酒，反而更适合你。', tags:['洞察','克制','有故事'] },
+  INFP:{ role:'深夜会把情绪喝下去的人', drink:'樱桃菲士', vibe:'柔软浪漫', copy:'你不是想喝酒。\n你只是想让今晚柔一点。\n刚好，这一杯也是。', tags:['柔软','浪漫','情绪流'] }
+};
+
+function getDrinkByName(name) {
+  return DRINKS_DATA.find(d => {
+    const clean = (d.name_clean || d.name || '').replace(/[“”]/g,'');
+    return clean === name || (d.name_clean || d.name) === name;
+  });
+}
+
+const drinkingGames = [
+  "喝之前，先说一个今晚最想见的人。",
+  "和右边的人碰杯，再喝第一口。",
+  "先讲一个最近发生的好消息。",
+  "选在场一人，让 TA 替你决定要不要干了。",
+  "先回答：今晚想早点回家吗？",
+  "用一个词形容你今晚的状态，再开喝。",
+  "把你的杯举向最想感谢的人，然后一饮而尽。"
+];
+
+function setTaste(t) {
+  currentTaste = t;
+  currentSource = 'taste';
+  currentMBTI = null;
+  randomDrink();
+}
+
+function openAlmanac() {
+  const key = Math.random() > 0.32 ? 'ji' : 'xiong';
+  showAlmanac(key);
+}
+
+function getCurrentBackView() {
+  return currentSource === 'mbti' ? 'mbti-card' : 'taste-picker';
+}
+
+function getSourceChip() {
+  if (currentSource === 'mbti' && currentMBTI) {
+    return `<span class="xhs-badge">🧠 ${esc(currentMBTI.type)} · ${esc(currentMBTI.role)}</span>`;
+  }
+  if (currentTaste) {
+    return `<span class="xhs-badge">🍸 ${esc(currentTaste)}口命中</span>`;
+  }
+  return `<span class="xhs-badge">🎲 随机抽中</span>`;
+}
+
+function getReasonCopy() {
+  if (currentSource === 'mbti' && currentMBTI) return currentMBTI.copy;
+  if (!currentDrink) return '';
+  const name = esc(currentDrink.name_clean || currentDrink.name);
+  const byTaste = {
+    '甜': `你今晚不适合太硬的东西。\n要顺一点，也要有一点愉悦感。\n所以最后落在了 ${name}。`,
+    '酸': `你想要一点提神的锋利感。\n最好第一口就有反应。\n所以今晚抽到的是 ${name}。`,
+    '苦': `你今晚更适合有骨架的味道。\n不用太甜，也不用太讨好。\n${name} 会更像你现在的状态。`
+  };
+  return currentTaste ? byTaste[currentTaste] : `今晚不想自己决定，那就交给运气。\n结果挑中了 ${name}。\n至少看起来，它很适合现在的你。`;
+}
+
+function getReasonTags() {
+  if (currentSource === 'mbti' && currentMBTI) return currentMBTI.tags || [];
+  const byTaste = {
+    '甜': ['柔一点','好入口','不费力'],
+    '酸': ['有反应','醒一下','清爽提神'],
+    '苦': ['有骨架','经典派','慢慢喝']
+  };
+  return currentTaste ? byTaste[currentTaste] : ['今晚随机','看运气','交给这一杯'];
+}
+
+function getShareCaption() {
+  if (!currentDrink) return '';
+  const name = currentDrink.name_clean || currentDrink.name;
+  const lead = currentSource === 'mbti' && currentMBTI
+    ? `今天喝什么｜测出来我居然是 ${name}`
+    : `今天喝什么｜今晚抽到的是 ${name}`;
+  const tags = getReasonTags().map(t => `#${t}`).join(' ');
+  return `${lead}\n\n${getReasonCopy()}\n\n${tags}`;
+}
+
+function openShareCard() {
+  if (!currentDrink) return;
+  const name = esc(currentDrink.name_clean || currentDrink.name);
+  const tags = getReasonTags().map(t => `<span class="tag">#${esc(t)}</span>`).join('');
+  $('share-card').innerHTML = `
+    <div class="share-kicker">Tonight's Drink Card</div>
+    <div class="share-drink">${name}</div>
+    <div class="share-reason">${esc(getReasonCopy())}</div>
+    <div class="result-tags" style="margin-bottom:14px;">${tags}</div>
+    <div class="result-sub" style="margin-bottom:0;">${getSourceChip()}</div>`;
+  $('share-overlay').classList.add('show');
+}
+
+function closeShareCard() {
+  $('share-overlay').classList.remove('show');
+}
+
+function copyShareCaption() {
+  const text = getShareCaption();
+  const done = ()=>showToast('文案已复制，可以直接发小红书');
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(()=>{
+      const input = document.createElement('textarea');
+      input.value = text;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      input.remove();
+      done();
+    });
+  } else {
+    const input = document.createElement('textarea');
+    input.value = text;
+    document.body.appendChild(input);
+    input.select();
+    document.execCommand('copy');
+    input.remove();
+    done();
+  }
+}
+
+function renderResult() {
+  const d = currentDrink;
+  if (!d) return;
+  const name = d.name_clean || d.name;
+  const game = drinkingGames[Math.floor(Math.random()*drinkingGames.length)];
+  const xhsBadge = d.link ? `<a href="${d.link}" target="_blank" class="xhs-badge">📖 原笔记</a>` : '';
+  const imgHtml  = d.img
+    ? `<img class="drink-img" src="${d.img}" onload="this.classList.add('loaded')" onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=drink-img-ph>🍹</div>'">`
+    : `<div class="drink-img-ph">🍹</div>`;
+  const tagsHtml = getReasonTags().map(tag=>`<span class="tag">#${esc(tag)}</span>`).join('');
+  $('result').innerHTML = `
+    <div class="back-btn-abs" onclick="backTo('${getCurrentBackView()}')">←</div>
+    <div class="drink-img-wrap">${imgHtml}</div>
+    <div class="result-content">
+      <h2 class="result-title">${esc(name)}</h2>
+      <div class="result-sub">${esc(d.base||'')} · ${esc(d.flavor||'')} ${xhsBadge}</div>
+      <div class="result-sub" style="margin-top:-8px;margin-bottom:10px;">${getSourceChip()}</div>
+      <div class="result-reason">${esc(getReasonCopy())}</div>
+      <div class="result-tags">${tagsHtml}</div>
+
+      <button class="btn-large btn-primary" style="margin-bottom:14px;" onclick="openAlmanac()">🔮 今日酒运 · 点我开奖</button>
+
+      <div class="game-box">
+        <div class="game-title">这一杯的附加玩法</div>
+        <div class="game-desc">${esc(game)}</div>
+      </div>
+
+      <div class="recipe-bento">
+        <div class="rb-col">
+          <div class="rb-title">配方</div>
+          <div class="rb-val">${esc((d.recipe || d.body || '').slice(0,120))}${(d.recipe||d.body||'').length>120?'…':''}</div>
+        </div>
+        <div class="rb-divider"></div>
+        <div class="rb-col">
+          <div class="rb-title">风格</div>
+          <div class="rb-val">${esc(d.flavor || d.taste || '今晚专属')}</div>
+        </div>
+      </div>
+
+      <button class="btn-large" onclick="openShareCard()" style="margin-bottom:14px;">
+        <div style="display:flex;align-items:center;">
+          <div class="btn-icon-wrap">📓</div>
+          <div class="btn-content">
+            <div>生成我的今晚酒卡</div>
+            <div style="font-size:11px;color:var(--text-sub);font-weight:500;margin-top:2px;">可直接截图，也可复制文案</div>
+          </div>
+        </div>
+        <div class="btn-arrow">›</div>
+      </button>
+
+      <div class="action-group">
+        <button class="btn-large btn-outline btn-half" onclick="switchView('step1')">回首页</button>
+        ${currentSource === 'mbti'
+          ? `<button class="btn-large btn-primary btn-half" onclick="startMBTI()">重测一次</button>`
+          : `<button class="btn-large btn-primary btn-half" onclick="randomDrink()">再换一杯</button>`}
+      </div>
+    </div>`;
+  switchView('result');
+}
+
+function randomDrink() {
+  switchView('loading');
+  setTimeout(()=>{
+    let pool = currentTaste ? DRINKS_DATA.filter(d=>d.taste===currentTaste) : DRINKS_DATA;
+    if (!pool.length) pool = DRINKS_DATA;
+    currentDrink = pool[Math.floor(Math.random()*pool.length)];
+    renderResult();
+  }, 500);
+}
+
+function startMBTI() {
+  currentSource = 'mbti';
+  currentMBTI = null;
+  mbtiQuestionIndex = 0;
+  mbtiAnswers = { E:0,I:0,S:0,N:0,T:0,F:0,J:0,P:0 };
+  switchView('mbti-quiz');
+  renderMBTIQuestion();
+}
+
+function renderMBTIQuestion() {
+  const item = MBTI_QUESTIONS[mbtiQuestionIndex];
+  $('mbti-progress').textContent = `问题 ${mbtiQuestionIndex + 1} / ${MBTI_QUESTIONS.length}`;
+  $('mbti-question').textContent = item.q;
+  $('mbti-option-a').innerHTML = `<div style="display:flex;align-items:center;"><div class="btn-icon-wrap">A</div><div class="btn-content"><div>${esc(item.a.text)}</div></div></div><div class="btn-arrow">›</div>`;
+  $('mbti-option-b').innerHTML = `<div style="display:flex;align-items:center;"><div class="btn-icon-wrap">B</div><div class="btn-content"><div>${esc(item.b.text)}</div></div></div><div class="btn-arrow">›</div>`;
+  $('mbti-option-a').onclick = ()=>answerMBTI(item.a.type);
+  $('mbti-option-b').onclick = ()=>answerMBTI(item.b.type);
+}
+
+function answerMBTI(type) {
+  mbtiAnswers[type] = (mbtiAnswers[type] || 0) + 1;
+  mbtiQuestionIndex += 1;
+  if (mbtiQuestionIndex < MBTI_QUESTIONS.length) renderMBTIQuestion();
+  else finishMBTI();
+}
+
+function finishMBTI() {
+  const type = [
+    mbtiAnswers.E >= mbtiAnswers.I ? 'E' : 'I',
+    mbtiAnswers.S >= mbtiAnswers.N ? 'S' : 'N',
+    mbtiAnswers.T >= mbtiAnswers.F ? 'T' : 'F',
+    mbtiAnswers.J >= mbtiAnswers.P ? 'J' : 'P'
+  ].join('');
+  const profile = MBTI_PROFILES[type] || MBTI_PROFILES.ENFP;
+  currentMBTI = { type, ...profile };
+  currentDrink = getDrinkByName(profile.drink) || DRINKS_DATA[Math.floor(Math.random()*DRINKS_DATA.length)];
+  renderMBTICard();
+}
+
+function renderMBTICard() {
+  const m = currentMBTI;
+  const d = currentDrink;
+  $('mbti-card-inner').innerHTML = `
+    <div class="mbti-cover">
+      <div class="mbti-type">${esc(m.type)}</div>
+      <div class="mbti-title">${esc(m.role)}</div>
+      <div class="mbti-desc">${esc(m.copy)}</div>
+      <div class="mbti-meta">${m.tags.map(tag=>`<span class="tag">#${esc(tag)}</span>`).join('')}</div>
+    </div>
+    <div class="recipe-bento" style="margin-bottom:16px;">
+      <div class="rb-col">
+        <div class="rb-title">今晚适合</div>
+        <div class="rb-val" style="font-size:16px;font-weight:800;">${esc(d.name_clean || d.name)}</div>
+      </div>
+      <div class="rb-divider"></div>
+      <div class="rb-col">
+        <div class="rb-title">风格</div>
+        <div class="rb-val">${esc(m.vibe)}</div>
+      </div>
+    </div>
+    <div class="action-group">
+      <button class="btn-large btn-outline btn-half" onclick="startMBTI()">重测一次</button>
+      <button class="btn-large btn-primary btn-half" onclick="goMBTIDrink()">就是这杯</button>
+    </div>`;
+  switchView('mbti-card');
+}
+
+function goMBTIDrink() {
+  currentSource = 'mbti';
+  renderResult();
+}
+
+// ── BAR UI ───────────────────────────────────────────
+// ── BAR UI ───────────────────────────────────────────
+function buildBarUI() {
+  const tabsEl   = $('cat-tabs');
+  const panelsEl = $('cat-panels');
+  tabsEl.innerHTML = '';
+  panelsEl.innerHTML = '';
+  Object.entries(BAR_DATA).forEach(([cat, data], ci) => {
+    const tab = document.createElement('button');
+    tab.className = 'cat-tab'+(ci===0?' active':'');
+    tab.textContent = data.icon+' '+cat;
+    tab.onclick = ()=>{
+      document.querySelectorAll('.cat-tab').forEach((t,i)=>t.classList.toggle('active',i===ci));
+      document.querySelectorAll('.cat-panel').forEach((p,i)=>p.classList.toggle('active',i===ci));
+    };
+    tabsEl.appendChild(tab);
+
+    const panel = document.createElement('div');
+    panel.className = 'cat-panel'+(ci===0?' active':'');
+
+    let html = '<div style="display:flex;flex-direction:column;gap:10px;">';
+    data.bars.forEach((bar,bi)=>{
+      const fid=`f-${ci}-${bi}`, aid=`a-${ci}-${bi}`;
+      const cards = bar.notes.map(n=>`
+        <a class="note-card" href="${n.link||'#'}" target="_blank">
+          ${n.img
+            ? `<img class="note-cover" src="${n.img}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=note-cover-ph>📸</div>'">`
+            : `<div class="note-cover-ph">📸</div>`}
+          <div class="note-info"><div class="note-title">${esc(n.title||'')}</div></div>
+        </a>`).join('');
+      html += `
+        <div class="bar-section">
+          <div class="bar-header" onclick="tf('${fid}','${aid}')">
+            <div class="row-logo">${data.icon}</div>
+            <div class="row-info">
+              <div class="row-title">${esc(bar.name)}</div>
+              <div class="row-desc">${esc(bar.desc||'')}</div>
+            </div>
+            ${bar.count>0?`<div class="row-count">${bar.count}篇</div>`:''}
+            <div class="bar-expand-arrow" id="${aid}">›</div>
+          </div>
+          <div class="note-feed" id="${fid}">
+            ${bar.notes.length
+              ? `<div class="note-masonry">${cards}</div>`
+              : '<div style="text-align:center;padding:12px;font-size:12px;color:var(--text-sub)">暂无笔记</div>'}
+          </div>
+        </div>`;
+    });
+    html += '</div>';
+    panel.innerHTML = html;
+    panelsEl.appendChild(panel);
+  });
+}
+function tf(fid,aid) {
+  const f=$( fid), a=$(aid), open=f.classList.contains('open');
+  f.classList.toggle('open',!open); a&&a.classList.toggle('open',!open);
+}
+
+function esc(s){ return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+buildBarUI();
+</script>
+
+
+</body></html>
